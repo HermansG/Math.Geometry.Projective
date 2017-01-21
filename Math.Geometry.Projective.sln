@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math.Geometry.Projective", "Math.Geometry.Projective\Math.Geometry.Projective.csproj", "{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorelDraw.Automation", "CorelDraw.Automation\CorelDraw.Automation.csproj", "{43253726-877E-4C1B-8CB9-93F8A05D7AA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43253726-877E-4C1B-8CB9-93F8A05D7AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43253726-877E-4C1B-8CB9-93F8A05D7AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43253726-877E-4C1B-8CB9-93F8A05D7AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43253726-877E-4C1B-8CB9-93F8A05D7AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
