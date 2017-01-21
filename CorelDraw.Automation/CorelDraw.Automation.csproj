@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\Math.Geometry.Projective\lib\Net451\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +47,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2D\Circle.cs" />
+    <Compile Include="2D\Drawings.cs" />
+    <Compile Include="2D\Functions.cs" />
+    <Compile Include="2D\MöbiusPlane.cs" />
+    <Compile Include="3D\StereographicProjection.cs" />
+    <Compile Include="DrawingBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="VBA\CorelDraw X7 Macros Help.chm" />
+    <None Include="VBA\CorelDrawMacros.gms" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Math.Geometry.Projective\Math.Geometry.Projective.csproj">
+      <Project>{fc1a6b6d-ed96-4701-a6a1-c7ca1cba0558}</Project>
+      <Name>Math.Geometry.Projective</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\bin-cdr-7\Interop.CorelDRAW.dll" />
+    <Content Include="lib\bin-cdr-7\Interop.VGCore.dll" />
+    <Content Include="lib\bin-cdr-8\Corel.Interop.CorelDRAW.dll" />
+    <Content Include="lib\bin-cdr-8\Corel.Interop.VGCore.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CorelDRAW">
+      <Guid>{FBF4300F-D921-11D1-B806-00A0C90646A9}</Guid>
+      <VersionMajor>18</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VGCore">
+      <Guid>{95E23C91-BC5A-49F3-8CD1-1FC515597048}</Guid>
+      <VersionMajor>18</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Net451\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +45,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0A.Extensions.cs" />
+    <Compile Include="0B.ExtRandom.cs" />
+    <Compile Include="0C.ExtPrecision.cs" />
+    <Compile Include="1.Vector2-3.cs" />
+    <Compile Include="2A.HVector.cs" />
+    <Compile Include="2B.Set.cs" />
+    <Compile Include="3.Element1D.cs" />
+    <Compile Include="4A.Point2D.cs" />
+    <Compile Include="4B.Line2D.cs" />
+    <Compile Include="5A.Point3D.cs" />
+    <Compile Include="5B.Plane3D.cs" />
+    <Compile Include="6A.LinearComplex.cs" />
+    <Compile Include="6B.Line3D.cs" />
+    <Compile Include="7A.Transformation1D.cs" />
+    <Compile Include="7B.Transformation2D.cs" />
+    <Compile Include="7C.Transformation.cs" />
+    <Compile Include="8.Projection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Net451\MathNet.Numerics.dll" />
+    <Content Include="lib\Net451\MathNet.Numerics.pdb" />
+    <Content Include="lib\Net451\MathNet.Numerics.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

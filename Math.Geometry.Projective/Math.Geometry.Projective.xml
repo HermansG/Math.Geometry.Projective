@@ -1,0 +1,2717 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Math.Geometry.Projective</name>
+    </assembly>
+    <members>
+        <member name="T:Geometry.Projective.Extensions">
+            <summary>
+            Static methods, extension methods and constants for general use.
+            </summary>
+            <summary>
+            Static methods, extension methods and constants for general use.
+            </summary>
+            <summary>
+            Static methods, extension methods and constants for general use.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.PrecisionZero">
+            <summary>
+            Any double value smaller then this value will be treated as zero.<para>
+            Approximately 1E-12.</para><para>
+            Note that other choices for this value may generate errors in the calculation strategies for homogeneous coordinates.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.PrecisionInfinity">
+            <summary>
+            Any double value with an absolute value greater then this value will be treated as infinity.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.MaxHomogeneousValue">
+            <summary>
+            The maximum value used for homogeneous coordinates.<para>
+            Larger values will be divided by a factor.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsDefault``1(``0)">
+            <summary>
+            Check whether the struct is equal to its default value.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.GetFlags(System.Enum)">
+            <summary>
+            Get the values set in an enum with a flag structure.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.EnUsCulture">
+            <summary>
+            The en-Us culture.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.ToComplex(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Converts an IEnumerable of doubles into an IEnumerable of complex numbers.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.ToComplex(System.Double[])">
+            <summary>
+            Converts an array of doubles into an array of complex numbers.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsValid(System.Numerics.Complex[],System.Boolean)">
+            <summary>
+            Check whether all values are valid.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsValid(System.Numerics.Complex)">
+            <summary>
+            Check whether the complex value is valid.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsReal(System.Numerics.Complex[],System.Boolean)">
+            <summary>
+            Check whether all values are real and valid.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.EqualsWithinPrecision(System.Double,System.Double)">
+            <summary>
+            Check whether two double numbers are equal within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.EqualsWithinPrecision(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Check whether two complex numbers are equal within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.EqualsWithinPrecision(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex},MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Check whether two complex vectors are equal within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsZero(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex})">
+            <summary>
+            Check whether the matrix has all entries equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsZero(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Check whether the vector has all coordinates equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.AllZero(System.Collections.Generic.IEnumerable{System.Numerics.Complex})">
+            <summary>
+            Check whether the collection has all coordinates equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.AllZero(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Check whether the collection has all coordinates equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsZero(System.Numerics.Complex)">
+            <summary>
+            Check whether the real and imaginary part of a complex number are equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsZero(System.Double)">
+            <summary>
+            Check whether the real number is equal to zero within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.AbsoluteSum(System.Numerics.Complex)">
+            <summary>
+            The sum of the absolute value of the real part and the absolute value of the imaginary part.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CoerceHomogeneousCoordinates(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Consider the vector to be a homogeneous vector and simplify it.<para>
+            When the vector is homogeneous real, its values will be made real.</para><para>
+            A homogeneous factor will be applied to prevent the coordinates from becoming too large.</para><para>
+            Values of the vector will be coerced to a whole number, a simple fraction or 0 within a certain precision.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.IsHomogeneousReal(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Consider the vector to be a homogeneous vector and check whether it represents a real homogeneous vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CoerceZero(System.Numerics.Complex)">
+            <summary>
+            Forces small numbers near zero to zero.<para>
+            The Math.Net library does not coerce e.g. 1e-15 +2*i to 2*i because it looks at the magnitude.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CoerceZero(System.Numerics.Complex[])">
+            <summary>
+            Forces small numbers near zero to zero.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CoerceZero(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Forces small numbers near zero to zero.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CoerceZero(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex})">
+            <summary>
+            Forces small numbers near zero to zero.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.ToVectorString(System.Numerics.Complex[])">
+            <summary>
+            A string representation of an array of complex numbers in the form (a+bi, c+di, ..)
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.ToComplexString(System.Numerics.Complex)">
+            <summary>
+            Give a string representation of a complex number in the form a+bI.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.Between(System.Double,System.Double,System.Double)">
+            <summary>
+            Check whether a number is between two bounds, inclusivley.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandom``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Pick a random item out of a IEnumerable collection.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandom(System.Int32,System.Int32)">
+            <summary>
+            Pick a random number between min (inclusive) and max (exclusive).<para>
+            The value of 'max' must be greater than or equal to the value of 'min'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandom(System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            Pick a random number between min (inclusive) and max (exclusive) excluding some numbers.<para>
+            The value of 'max' must be greater than or equal to the value of 'min'.</para><para>
+            The range between 'min' and 'max' without the excluded numbers may not be empty.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandomSign">
+            <summary>
+            Pick +1 or -1 randomly.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.Combinations``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Get all combinations of k elements out of an IEnumerable with Count elements (i.e. Count over k).
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.Combinations``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Get all combinations of k elements out of an List with Count elements (i.e. Count over k).
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.Shuffle``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Shuffle the items in a list to get a random order.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandomLine(System.Boolean)">
+            <summary>
+            Returns a random line, optionally complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PickRandomHVector(System.Int32,System.Boolean)">
+            <summary>
+            Returns a random HVector with 'count' coordinates, optionally complex.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.Numbersincludingmanyzeros">
+            <summary>
+            Numbers -10 to +10 with 10 extra zero's.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Extensions.Numbersnotincludingzero">
+            <summary>
+            Numbers -10 to +10 excluding 0.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.DotProduct(System.Numerics.Complex[],System.Numerics.Complex[])">
+            <summary>
+            Calculate the inner- or dot-product of two arrays of equal length.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.LinearDependant(System.Numerics.Complex[],System.Numerics.Complex[])">
+            <summary>
+            Calculate the complex factor f so that array B = f * array A.<para>
+            When the arrays A and B are not linear dependent the return value is 'null'.</para><para>
+            Zero arrays or invalid arrays will also return 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.LinearDependentFactors(Geometry.Projective.HVector,Geometry.Projective.HVector,Geometry.Projective.HVector)">
+            <summary>
+            Calculate the factors a, b so that C = a * A + b * B.<para>
+            When the Hvectors A, B and C are not linear dependent (i.e. not collinear) the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.LinearDependentFactor(Geometry.Projective.Vector3,Geometry.Projective.Vector3)">
+            <summary>
+            Calculate the factor f so that B = f * A.<para>
+            When the 3D-vectors A and B are not linear dependent the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CrossProduct(System.Numerics.Complex[],System.Numerics.Complex[])">
+            <summary>
+            Calculate the cross product from 2 vectors with each 3 entries.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.PlueckerProduct(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex},MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Calculate the Plücker coordinates (p01, p02, p03, p23, p31, p12) from 2 vectors with each 4 entries.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.ImaginaryHVector(Geometry.Projective.HVector,Geometry.Projective.HVector,Geometry.Projective.HVector)">
+            <summary>
+            Calculate the imaginary HVector that is represented by the projectivity ABC -> BCA.<para>
+            The return value and its complex conjugate are the invariant imaginary points for this projectivity</para><para>
+            When the Hvectors A, B and C are not linear dependent (i.e. not collinear) the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CanonicalTransformation(System.Collections.Generic.IEnumerable{Geometry.Projective.HVector})">
+            <summary>
+            Calculate the homogeneous matrix that transforms the canonical frame, i.e. the canonical base together with the unit homogeneous vector, into
+            a given set of independent homogeneous vectors.<para>
+            Only spatial dimensions 1, 2 and 3 are supported, i.e. 3 homogeneous vectors with each 2 coordinates, 4 homogeneous vectors with each 3 coordinates or 5 homogeneous vectors with each 4 coordinates.</para><para>
+            An exception is thrown when any smaller subset of the homogeneous vectors is linear dependant.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CrossRatio(System.Collections.Generic.IEnumerable{Geometry.Projective.HVector})">
+            <summary>
+            Calculate the cross ration of four hvectors, i.e. 4 points, 4 lines, 4 planes.<para>
+            The first three elements will be considered as the base, w.r.t. which the cross ration of the fourth element will be calculated.</para><para>
+            In the case of two or three dimensions an exception is thrown when the elements are not in a pencil.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CrossRatio(Geometry.Projective.HVector[])">
+            <summary>
+            Calculate the cross ration of four homogeneous vectors, i.e. 4 points, 4 lines, 4 planes.<para>
+            The first three elements will be considered as the base, w.r.t. which the cross ration of the fourth element will be calculated.</para><para>
+            First element = origin, second element = infinity, third element = unity.</para><para>
+            An exception is thrown when the elements are not in a pencil.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Extensions.CrossRatio(Geometry.Projective.Set{Geometry.Projective.HVector})">
+            <summary>
+            Calculate the cross ration of four hvectors, i.e. 4 points, 4 lines, 4 planes.<para>
+            The first three elements will be considered as the base, w.r.t. which the cross ration of the fourth element will be calculated.</para><para>
+            In the case of two or three dimensions an exception is thrown when the elements are not in a pencil.</para>
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.AlgorithmException">
+            <summary>
+            An algorithm failed unexpectedly.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.AlgorithmException.#ctor(System.String)">
+            <summary>
+            An algorithm failed unexpectedly.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.ThreadSafeRandom">
+            <summary>
+            Thread safe random generator.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ThreadSafeRandom.ThisThreadsRandom">
+            <summary>
+            Thread safe random generator.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.HVector">
+            <summary>
+            A homogeneous vector with at least two homogeneous coordinates (complex or real) using dense storage.<para>
+            When all coordinates are 0, or one of the coordinates is NaN, the vector is invalid.</para><para>
+            The coordinates are immutable.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.#ctor(System.Collections.Generic.IEnumerable{System.Numerics.Complex})">
+            <summary>
+            The values are copied into the data of the new vector.<para>
+            At least two coordinates are required and the zero vector is forbidden.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            The values are copied into the data of the new vector.<para>
+            At least two coordinates are required and the zero vector is forbidden.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the data of the new vector.<para>
+            Operators in MathNet.Numerics.LinearAlgebra.Complex.DenseVector return the abstract type Vector[Complex]</para><para>
+            At least two coordinates are required and the zero vector is forbidden.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the data of the new vector.<para>
+            At least two coordinates are required and the zero vector is forbidden.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The vector data are copied into the data of the new vector.<para>
+            At least two coordinates are required and the zero vector is forbidden.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.Clone">
+            <summary>
+            Get a copy of the data of this hvector.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.HVector.vector">
+            <summary>
+            The internal vector data.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.HVector.Item(System.Int32)">
+            <summary>
+            The read-only coordinate at position 'index'.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.HVector.Count">
+            <summary>
+            The number of coordinates of the homogeneous vector.<para>
+            Note that the spatial dimension is one less than this value.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.IsZero">
+            <summary>
+            Determines whether all coordinates of this homogeneous vector are zero with respect to a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.ToVector">
+            <summary>
+            Get a copy of the raw vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.ToArray">
+            <summary>
+            Get a copy of the data of this homogeneous vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.Multiply(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex})">
+            <summary>
+            Multiply the homogeneous vector with a homogeneous matrix.<para>
+            I.e. (matrix) * (vector).</para><para>
+            The matrix must be a square matrix of the same dimension as the homogeneous vector.</para><para>
+            In case of a zero matrix the return value will be 'null'.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.HVector.Conjugate">
+            <summary>
+            The homogeneous vector with complex conjugate coordinates.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Determines whether this homogeneous vector is incident with another - dual - homogeneous vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.Equals(Geometry.Projective.HVector)">
+            <summary>
+            Compare two homogeneous vectors on the basis of their homogeneous coordinates.<para>
+            When one of the two hvectors is invalid the result is false.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.IsReal">
+            <summary>
+            Check whether the homogenous coordinates represent a real homogeneous vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.GetRandomIncident(System.Boolean,Geometry.Projective.HVector[])">
+            <summary>
+            Calculate a random HVector of the same dimension, incident with this Hvector.<para>
+            Optionally excluding a number of known HVectors, optionally complex.</para><para>
+            Optionally specify an index that may not be zero.</para><para>
+            (A 1-dimensional element has exactly one incident object and the list of excluded HVectors is ignored.)</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.GetRandomIncident(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.HVector})">
+            <summary>
+            Calculate a random HVector of the same dimension, incident with this Hvector.<para>
+            Optionally excluding a list of known HVectors, optionally complex.</para><para><para>
+            Optionally specify an index that may not be zero.</para>
+            (A 1-dimensional element has exactly one incident object and the list of excluded HVectors is ignored.)</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.HVector.ToString">
+            <summary>
+            A string representation of the type and values of the vector in the form (a+bi, c+di, ..)
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.HVector.Name">
+            <summary>
+            Possibly a name for the object.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Element1D">
+            <summary>
+            A homogeneous vector with 2 complex (or real) homogeneous coordinates, representing a element in 1-dimensional projective space.<para>
+            When the first coordinate is 0, the element is at infinity.</para><para>
+            When the first coordinate is 1, the other coordinate is the affine or euclidean coordinate of the element.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the coordinates of the new element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the coordinates of the new element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the coordinates of the new element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the data of the new element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(System.Numerics.Complex)">
+            <summary>
+            The affine or Euclidean value (complex or real) is copied as the coordinate of the new element.<para>
+            The first coordinate will be One.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.#ctor(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values (complex or real) are copied into the coordinates of the new element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.Clone">
+            <summary>
+            Create a new element, identical to this one.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Check whether a given hvector is incident with this element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.DistanceOrigin">
+            <summary>
+            Interpret the element as an Euclidean element and return its distance from the origin.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Element1D.ToAffineString">
+            <summary>
+            A string representation for the corresponding 1-dimensional affine or euclidean coordinates of the element.<para>
+            When the element is at infinity, "infinity", is printed.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Element1D.Origin">
+            <summary>
+            (1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Element1D.Infinity">
+            <summary>
+            (0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Element1D.Unity">
+            <summary>
+            (1 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Point2D">
+            <summary>
+            A homogeneous vector with 3 complex (or real) homogeneous coordinates, representing a point in 2-dimensional projective space.<para>
+            When the first coordinate is 0, the point is at infinity.</para><para>
+            When the first coordinate is 1, the other 2 coordinates are the affine or euclidean coordinates of the point.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the data of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The affine or Euclidean values (complex or real) are copied into the coordinates of the new point.<para>
+            The first coordinate will be One.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values (complex or real) are copied into the coordinates of the new point.<para>
+            When x0=1, x1 is the affine or Euclidean value of x and x2 that of y.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.#ctor(Geometry.Projective.Vector2)">
+            <summary>
+            The affine or Euclidean values (complex or real) are copied into the coordinates of the new point.<para>
+            The first coordinate will be One.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.Clone">
+            <summary>
+            Create a new point, identical to this one.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.Join(Geometry.Projective.Point2D)">
+            <summary>
+            Return the line through this point and another point, or null when the points are identical.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.IsAtInfinity">
+            <summary>
+            Check whether a this point is at infinity.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.IsIncident(Geometry.Projective.Line2D)">
+            <summary>
+            Check whether a given line passes through this point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Check whether a given hvector is incident with this point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.DistanceOrigin">
+            <summary>
+            Interpret the point a san Euclidean point and return its distance from the origin.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.ToAffine">
+            <summary>
+            The corresponding 2-dimensional affine or euclidean coordinates of the point are returned.<para>
+            When the point is at infinity, 'null' is returned.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.AsDirection">
+            <summary>
+            When the point is at infinity, its remaining 2-dimensional affine or euclidean coordinates are returned.<para>
+            Otherwise 'null' is returned.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.ToAffineString">
+            <summary>
+            A string representation for the corresponding 2-dimensional affine or euclidean coordinates of the point.<para>
+            When the point is at infinity, "(direction towards infinity)", is added.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point2D.GetLine(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D})">
+            <summary>
+            Get a random line from the pencil of lines through this point.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point2D.Origin">
+            <summary>
+            (1 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point2D.InfinityX">
+            <summary>
+            (0 1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point2D.InfinityY">
+            <summary>
+            (0 0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point2D.Unity">
+            <summary>
+            (1 1 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Line2D">
+            <summary>
+            A homogeneous vector with 3 complex (or real) homogeneous coordinates, representing a line in 2-dimensional projective space.<para>
+            Line y = ax + b has coordinates (b, a, -1), line x = c has coordinates (-c, 1, 0).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values of the line in the form y=ax+b.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(System.Numerics.Complex)">
+            <summary>
+            The values of the line in the form x=c.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.Clone">
+            <summary>
+            Create a new line, identical to this one.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.Direction">
+            <summary>
+            Return the 2-dimensional direction vector of the line. The vector will be zero when the line is at infinity.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.OffsetX">
+            <summary>
+            Return the offset on the x-axis.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.OffsetY">
+            <summary>
+            Return the offset on the y-axis.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.DistanceOrigin">
+            <summary>
+            Interpret the line as an Eclidean line and return its distance from the origin.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.CrossProduct(Geometry.Projective.Line2D)">
+            <summary>
+            Calculate the outer- or cross-product of two 3-dimensional vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.Meet(Geometry.Projective.Line2D)">
+            <summary>
+            Return the point where this line meets another line, or null when the lines are identical.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.IsIncident(Geometry.Projective.Point2D)">
+            <summary>
+            Check whether a given 2D point lies on this line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Check whether a given hvector is incident with this line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.ToAffineString">
+            <summary>
+            A string representation for the corresponding 2-dimensional affine or euclidean equation of the line.<para>
+            Either in the form y=ax+b, x=c or "line at infinity".</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line2D.GetPoint(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D})">
+            <summary>
+            Get a random point from the pencil of points on this line.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line2D.Infinity">
+            <summary>
+            [1 0 0]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line2D.Xaxis">
+            <summary>
+            [0 0 1]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line2D.Yaxis">
+            <summary>
+            [0 1 0]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line2D.Unity">
+            <summary>
+            [1 1 1]
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Collineation1D">
+            <summary>
+            A non-singular 1 dimensionsal projective projective mapping of 1-D elements to 1-D elements of the same type.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation1D.#ctor(MathNet.Numerics.LinearAlgebra.Complex.Matrix)">
+            <summary>
+            The values of the non-singular 2x2 matrix determine the projectivity.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation1D.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Element1D},System.Collections.Generic.IEnumerable{Geometry.Projective.Element1D})">
+            <summary>
+            The values of the non-singular 2x2 matrix are calculated so that 3 given elements are mapped to 3 other given elements.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Collineation1D.matrix">
+            <summary>
+            Transforms 1-D elements into image 1-D elements.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation1D.Map(Geometry.Projective.Element1D)">
+            <summary>
+            Transform the given element into its image element.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation1D.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Element1D})">
+            <summary>
+            Transform the given elements into their image elements.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Projection">
+            <summary>
+            Map a range of real points with homogeneous coordinates onto the YZ-plane from a given center.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Projection.#ctor(Geometry.Projective.Point3D,Geometry.Projective.Plane3D)">
+            <summary>
+            Create a new projection from a center onto a plane.<para>
+            The default center of projection is the point of infinity of the x-axis.</para><para>
+            Optionally specify a real point as the center of projection.</para><para>
+            The default plane of projection is the YZ-plane.</para><para>
+            Optionally specify a real plane (not at infinity) on which to project.</para><para>
+            The center must not lie in the plane of projection.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.ProjectionCenter">
+            <summary>
+            The center of the spatial projection.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.ProjectionPlane">
+            <summary>
+            The plane onto which the projection takes place.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.Origin">
+            <summary>
+            The origin of the two-dimensional coordinate system in the plane of projection.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.XAxis">
+            <summary>
+            The x-axis of the two-dimensional coordinate system in the plane of projection.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.XUnitVector">
+            <summary>
+            The 3-D unit vector along the x-axis of the two-dimensional coordinate system in the plane of projection.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.YAxis">
+            <summary>
+            The y-axis of the two-dimensional coordinate system in the plane of projection.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Projection.YUnitVector">
+            <summary>
+            The 3-D unit vector along the y-axis of the two-dimensional coordinate system in the plane of projection.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Projection.Project(System.Collections.Generic.List{Geometry.Projective.Point3D},Geometry.Projective.Vector2)">
+            <summary>
+            Project a range of points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Projection.Project(Geometry.Projective.ParameterList{Geometry.Projective.Point3D},Geometry.Projective.Vector2)">
+            <summary>
+            Project a range of points using the type of projection (frontside, backside, behindside).<para>
+            The lists that are returned are grouped in continuous ranges of points each of a certain type of projection.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Projection.RealProjectedPoints(Geometry.Projective.ParameterList{Geometry.Projective.Point3D})">
+            <summary>
+            An accurate approximation of the points where the list of projected points meets the projection plane is added.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Projection.RealProjectedPoints(System.Collections.Generic.List{Geometry.Projective.Point3D})">
+            <summary>
+            An approximation of the points where the list of projected points meets the projection plane is added.<para>
+            If applicable these extra points can be removed: their 'spatial point' property is empty (null).</para>
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.ProjectionSet">
+            <summary>
+            The set of a spatial point, its type of projection, its projected point as a three-dimensional point and with its the two-dimensional coordinates.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ProjectionSet.SpatialPoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ProjectionSet.ProjectedPoint">
+            <summary>
+            The projected point in the projection plane.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ProjectionSet.ProjectedPoint2D">
+            <summary>
+            The two-dimensional coordinates of the projected point in the projection plane.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ProjectionSet.ProjectionType">
+            <summary>
+            The type of projection (frontside, backside, behindside).
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.ProjectionType">
+            <summary>
+            Indicates the position of the spatial point with respect to the projection plane and the projection center.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.ProjectionType.Frontside">
+            <summary>
+            The point is between the projection center and the projection plane.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.ProjectionType.Backside">
+            <summary>
+            The point is behind the projection plane seen from the projection center.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.ProjectionType.Behindside">
+            <summary>
+            The points is behind the projection center seen from the projection plane.
+            </summary>       
+        </member>
+        <member name="T:Geometry.Projective.Collineation2D">
+            <summary>
+            A non-singular 2 dimensionsal projective projective mapping of points to points, lines to lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.#ctor(MathNet.Numerics.LinearAlgebra.Complex.Matrix,Geometry.Projective.CoordinateType)">
+            <summary>
+            The values of the non-singular 3x3 matrix determine the projectivity.<para>
+            It must be specified whether the values of the matrix have to be interpreted as pointwise (contravariant) or hyperplanewise (covariant) values.</para><para>
+            In other words whether the matrix transforms points into points (pointwise, contravariant) or lines into lines (hyperplanewise, covariant).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D},System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D})">
+            <summary>
+            The values of the non-singular 3x3 matrix are calculated so that 4 given points are mapped to 4 other given points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D},System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given planes are mapped to 5 other given planes.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Collineation2D.Matrix">
+            <summary>
+            Transforms points into image points.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Collineation2D.MatrixDual">
+            <summary>
+            Transforms lines into image lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.Map(Geometry.Projective.Point2D)">
+            <summary>
+            Transform the given point into its image point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D})">
+            <summary>
+            Transform the given points into their image points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.Map(Geometry.Projective.Line2D)">
+            <summary>
+            Transform the given line into its image line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D})">
+            <summary>
+            Transform the given lines into their image lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.CreateCentralCollineation(Geometry.Projective.Point2D,Geometry.Projective.Line2D,System.Double)">
+            <summary>
+            The central collineation with respect to a center point, an axis and a factor for the cross ratio.<para>
+            In the case of an elation, the factor is additative.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.CreateCentralCollineation(Geometry.Projective.Point2D,Geometry.Projective.Line2D,Geometry.Projective.Point2D,Geometry.Projective.Point2D)">
+            <summary>
+            The central collineation with respect to a center point, an axis and an extra pre_image and image point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation2D.ToString">
+            <summary>
+            The matrix representation of the pointwise matrix of the collineation.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Correlation2D">
+            <summary>
+            A non-singular 2 dimensionsal projective mapping of points to lines, lines to points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.#ctor(MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix,Geometry.Projective.CoordinateType)">
+            <summary>
+            The values of the non-singular 3x3 matrix determine the projectivity.<para>
+            It must be specified whether the values of the matrix have to be interpreted as pointwise (contravariant) or hyperplanewise (covariant) values.</para><para>
+            In other words whether the matrix transforms points into lines (pointwise, contravariant) or lines into points (hyperplanewise, covariant).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D},System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D})">
+            <summary>
+            The values of the non-singular 3x3 matrix are calculated so that 4 given points are mapped to 4 given lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D},System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given planes are mapped to 5 given points.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Correlation2D.matrix">
+            <summary>
+            Transforms points into image lines.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Correlation2D.matrixDual">
+            <summary>
+            Transforms lines into image points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.Map(Geometry.Projective.Point2D)">
+            <summary>
+            Transform the given point into its image line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Point2D})">
+            <summary>
+            Transform the given points into their image lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.Map(Geometry.Projective.Line2D)">
+            <summary>
+            Transform the given line into its image point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation2D.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Line2D})">
+            <summary>
+            Transform the given lines into their image points.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Collineation">
+            <summary>
+            A non-singular 3 dimensionsal projective projective mapping of points to points, lines to lines, planes to planes.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.#ctor(MathNet.Numerics.LinearAlgebra.Complex.Matrix,Geometry.Projective.CoordinateType)">
+            <summary>
+            The values of the non-singular 4x4 matrix determine the projectivity.<para>
+            It must be specified whether the values of the matrix have to be interpreted as pointwise (contravariant) or hyperplanewise (covariant) values.</para><para>
+            In other words whether the matrix transforms points into points (pointwise, contravariant) or planes into planes (hyperplanewise, covariant).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D},System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given points are mapped to 5 other given points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D},System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given planes are mapped to 5 other given planes.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Collineation.matrix">
+            <summary>
+            Transforms points into image points.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Collineation.matrixDual">
+            <summary>
+            Transforms planes into image planes.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Collineation.matrixLines">
+            <summary>
+            Transforms contravariant line vectors into contravariant image line vectors.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Collineation.matrixLinesDual">
+            <summary>
+            Transforms covariant line vectors into covariant image line vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(Geometry.Projective.Point3D)">
+            <summary>
+            Transform the given point into its image point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D})">
+            <summary>
+            Transform the given points into their image points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(Geometry.Projective.Plane3D)">
+            <summary>
+            Transform the given plane into its image plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D})">
+            <summary>
+            Transform the given planes into their image planes.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(Geometry.Projective.Line3D)">
+            <summary>
+            Transform the given line into its image line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Collineation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Line3D})">
+            <summary>
+            Transform the given lines into their image lines.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Correlation">
+            <summary>
+            A non-singular 3 dimensionsal projective mapping of points to planes, lines to lines, planes to points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.#ctor(MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix,Geometry.Projective.CoordinateType)">
+            <summary>
+            The values of the non-singular 4x4 matrix determine the projectivity.<para>
+            It must be specified whether the values of the matrix have to be interpreted as pointwise (contravariant) or hyperplanewise (covariant) values.</para><para>
+            In other words whether the matrix transforms points into planes (pointwise, contravariant) or planes into points (hyperplanewise, covariant).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D},System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given points are mapped to 5 given planes.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.#ctor(System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D},System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D})">
+            <summary>
+            The values of the non-singular 4x4 matrix are calculated so that 5 given planes are mapped to 5 given points.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Correlation.matrix">
+            <summary>
+            Transforms points into image planes.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Correlation.matrixDual">
+            <summary>
+            Transforms planes into image points.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Correlation.matrixLines">
+            <summary>
+            Transforms contravariant line vectors into covariant image line vectors.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Correlation.matrixLinesDual">
+            <summary>
+            Transforms covariant line vectors into contravariant image line vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(Geometry.Projective.Point3D)">
+            <summary>
+            Transform the given point into its image plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D})">
+            <summary>
+            Transform the given points into their image planes.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(Geometry.Projective.Plane3D)">
+            <summary>
+            Transform the given plane into its image point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D})">
+            <summary>
+            Transform the given planes into their image points.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(Geometry.Projective.Line3D)">
+            <summary>
+            Transform the given line into its image line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.Map(System.Collections.Generic.IEnumerable{Geometry.Projective.Line3D})">
+            <summary>
+            Transform the given lines into their image lines.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Correlation.CreatePolaritySphere(Geometry.Projective.Point3D,System.Double)">
+            <summary>
+            The polarity with respect to a (real) sphere, is determined by its (real) center and its (real) radius.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Point3D">
+            <summary>
+            A homogeneous vector with 4 complex (or real) homogeneous coordinates, representing a point in 3-dimensional projective space.<para>
+            When the first coordinate is 0, the point is at infinity.</para><para>
+            When the first coordinate is 1, the other 3 coordinates are the affine or euclidean coordinates of the point.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the data of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values (complex or real) are copied into the coordinates of the new point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values (complex or real) are copied into the data of the new vector.<para>
+            The first coordinate will be One.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(Geometry.Projective.Point2D)">
+            <summary>
+            The vector data are copied into the coordinates of the new point.<para>
+            The fourth coordinate 'z' will be zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(Geometry.Projective.Vector3)">
+            <summary>
+            The vector data are copied into the coordinates of the new point.<para>
+            The first coordinate will be One.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.#ctor(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values (complex or real) are copied into the coordinates of the new point.<para>
+            The first coordinate will be One, the fourth coordinate 'z' will be zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.Clone">
+            <summary>
+            Create a new point, identical to this one.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.Join(Geometry.Projective.Point3D)">
+            <summary>
+            Return the line through this point and another point, or null when the points are identical.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.Join(Geometry.Projective.Line3D)">
+            <summary>
+            Return the plane through this point and a line, or null when this point is on the line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.Join(Geometry.Projective.Point3D,Geometry.Projective.Point3D)">
+            <summary>
+            Return the plane through this point and two other points, or null when two points are identical or the three points are collinear.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.IsIncident(Geometry.Projective.Plane3D)">
+            <summary>
+            Check whether a given point lies in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Check whether a given hvector is incident with this point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.IsIncident(Geometry.Projective.Line3D)">
+            <summary>
+            Check whether this point lies on a given line.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Point3D.IsAtInfinity">
+            <summary>
+            Check whether the point lies in the plan at infinity.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.ToAffine">
+            <summary>
+            The corresponding 3-dimensional affine or euclidean coordinates of the point are returned.<para>
+            When the point is at infinity, 'null' is returned.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.AsDirection">
+            <summary>
+            When the point is at infinity, its remaining 3-dimensional affine or euclidean coordinates are returned.<para>
+            Otherwise 'null' is returned.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.GetPlane(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.Plane3D})">
+            <summary>
+            Get a random plane from the sheave of planes through this point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.GetLine(System.Boolean)">
+            <summary>
+            Get a random line from the sheave of lines through this point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.GetLine(Geometry.Projective.Plane3D,System.Boolean)">
+            <summary>
+            Get a random line from the pencil of lines through this point in a given plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Point3D.CarrierLine">
+            <summary>
+            When the point is imaginary (complex), this is the line that carries the elliptical involution associated with the imaginary point.<para>
+            For a real point the result value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Point3D.Conjugate">
+            <summary>
+            The point with complex conjugate coordinates.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.Origin">
+            <summary>
+            (1 0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.InfinityX">
+            <summary>
+            (0 1 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.InfinityY">
+            <summary>
+            (0 0 1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.InfinityZ">
+            <summary>
+            (0 0 0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.UnityX">
+            <summary>
+            (1 1 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.UnityY">
+            <summary>
+            (1 0 1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.UnityZ">
+            <summary>
+            (1 0 0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Point3D.Unity">
+            <summary>
+            (1 1 1 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Plane3D">
+            <summary>
+            A homogeneous vector with 4 complex (or real) homogeneous coordinates, representing a plane in 3-dimensional projective space.<para>
+            Indices 1, 2, 3 give the Euclidean coordinates of the vector normal to the plane.</para><para>
+            Index 0 divided by the norm of the normal vector gives the distance of the plane with respect to the origin.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(Geometry.Projective.HVector)">
+            <summary>
+            The vector data are copied into the coordinates of the new plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the coordinates of the new plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the coordinates of the new plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the coordinates of the new plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values are copied into the coordinates of the new plane.<para>
+            The first coordinate will be Zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The values are copied into the coordinates of the new plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.#ctor(Geometry.Projective.Vector3)">
+            <summary>
+            The vector data are copied into the coordinates of the new plane.<para>
+            The first coordinate will be Zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.Clone">
+            <summary>
+            Create a new plane, identical to this one.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Plane3D.NormalVector">
+            <summary>
+            Return the 3-dimensional vector normal to the plane. The vector will be zero when the plane is at infinity.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.Distance">
+            <summary>
+            Interpret the plane as an Euclidean plane and return the distance from this plane to the origin.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.PerpendicularLine(Geometry.Projective.Point3D)">
+            <summary>
+            Return the line through a given 'point', perpendicular to this plane.<para>
+            The 'point' may not lie in the plane; the plane may not be at infinity.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.Meet(Geometry.Projective.Plane3D)">
+            <summary>
+            Return the line where this plane and another plane meet, or null when the planes are identical.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.Meet(Geometry.Projective.Line3D)">
+            <summary>
+            Return the point where this plane meets a given line, or null when the given line lies in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.Meet(Geometry.Projective.Plane3D,Geometry.Projective.Plane3D)">
+            <summary>
+            Return the point where this plane and two other planes meet, or null when two planes are identical or the three planes are coaxial.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.IsIncident(Geometry.Projective.Point3D)">
+            <summary>
+            Check whether a given point lies in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.IsIncident(Geometry.Projective.HVector)">
+            <summary>
+            Check whether a given hvector is incident with this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.IsIncident(Geometry.Projective.Line3D)">
+            <summary>
+            Check whether this plane goes through a given line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.GetPoint(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.Point3D})">
+            <summary>
+            Get a random point from the field of points in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.GetPoint(System.Boolean,Geometry.Projective.Point3D[])">
+            <summary>
+            Get a random point from the field of points in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.GetLine(System.Boolean)">
+            <summary>
+            Get a random line from the field of lines in this plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.GetLine(Geometry.Projective.Point3D,System.Boolean)">
+            <summary>
+            Get a random line from the pencil of lines in this plane and through a given point.<para>
+            The given point must be incident with this plane.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Plane3D.CarrierLine">
+            <summary>
+            When the plane is imaginary (complex), this is the line that carries the elliptical involution associated with the imaginary plane.<para>
+            For a real plane the result value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Plane3D.Conjugate">
+            <summary>
+            The plane with complex conjugate coordinates.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Plane3D.YZ">
+            <summary>
+            [0 1 0 0]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Plane3D.XZ">
+            <summary>
+            [0 0 1 0]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Plane3D.XY">
+            <summary>
+            [0 0 0 1]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Plane3D.Infinity">
+            <summary>
+            [1 0 0 0]
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Plane3D.Unity">
+            <summary>
+            [1 1 1 1]
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Line3D">
+            <summary>
+            A homogeneous vector with 6 complex (or real) homogeneous coordinates, representing a line in 3-dimensional projective space but also a special linear complex in 5-dimensional projective space.<para>
+            It must be specified whether the coordinates have to be interpreted as pointwise (contravariant) or (hyper)planewise (covariant) values.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(Geometry.Projective.HVector,Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex},Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,Geometry.Projective.CoordinateType)">
+            <summary>
+            The coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(System.Numerics.Complex[],Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(System.Double[],Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.#ctor(Geometry.Projective.Vector3,Geometry.Projective.Vector3)">
+            <summary>
+            The direction and moment vector are considered to be the pointwise coordinates of the new line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Create(Geometry.Projective.Point3D,Geometry.Projective.Point3D)">
+            <summary>
+            The line connecting two distinct, different points.<para>
+            When the points are equal, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Create(Geometry.Projective.Plane3D,Geometry.Projective.Plane3D)">
+            <summary>
+            The line where two distinct, different planes meet.<para>
+            When the planes are equal, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Clone">
+            <summary>
+            Create a new line, identical to this one.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Line3D.DirectionVector">
+            <summary>
+            The direction vector of this line in space.<para>
+            The local coordinates in the plane at infinity</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Line3D.MomentVector">
+            <summary>
+            The moment vector of this line in space.<para>
+            The local coordinates in the bundle of lines through the origin.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.GetPoints(System.Int32,System.Boolean)">
+            <summary>
+            A copy of some points on the line, with complex or real coordinates.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.GetPlanes(System.Int32,System.Boolean)">
+            <summary>
+            A copy of some planes through the line, with complex or real coordinates.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.IsIncident(Geometry.Projective.Point3D)">
+            <summary>
+            Calculate whether the point lies on this line.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.IsIncident(Geometry.Projective.Plane3D)">
+            <summary>
+            Calculate whether this line lies in the plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.IsIncident(Geometry.Projective.Line3D)">
+            <summary>
+            Calculate whether this line and another line have a common point and plane.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Join(Geometry.Projective.Point3D)">
+            <summary>
+            Calculate the plane, spanned by this line and a point.<para>
+            When the point is on the line, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Meet(Geometry.Projective.Plane3D)">
+            <summary>
+            Calculate the point where this line meets a plane.<para>
+            When the line is in the plane, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Join(Geometry.Projective.Line3D)">
+            <summary>
+            Calculate the plane, spanned by this line and another line.<para>
+            When the lines are skew, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.Meet(Geometry.Projective.Line3D)">
+            <summary>
+            Calculate the point where this line meets another line.<para>
+            When the lines are skew, the return value is 'null'.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Line3D.GetRandomIncident(System.Boolean,System.Collections.Generic.IEnumerable{Geometry.Projective.HVector})">
+            <summary>
+            Calculate a random line, incident with this line.<para>
+            Optionally excluding a list of known HVectors, optionally complex.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Line3D.Conjugate">
+            <summary>
+            The line with complex conjugate coordinates.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Line3D.IsImaginaryFirstKind">
+            <summary>
+            Determine wheter the line is real or imaginary of the first or second kind.<para>
+            An imaginary line of the first kind has exactly one real point and one real plane.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Line3D.IsImaginarySecondKind">
+            <summary>
+            Determine wheter the line is real or imaginary of the first or second kind.<para>
+            An imaginary line of the second kind has no real points or real planes.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.Xaxis">
+            <summary>
+            (1 0 0 0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.Yaxis">
+            <summary>
+            (0 1 0 0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.Zaxis">
+            <summary>
+            (0 0 1 0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.InfinityYZ">
+            <summary>
+            (0 0 0 1 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.InfinityXZ">
+            <summary>
+            (0 0 0 0 1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Line3D.InfinityXY">
+            <summary>
+            (0 0 0 0 0 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.LinearComplex">
+            <summary>
+            A homogeneous vector with 6 complex (or real) homogeneous coordinates, representing a linear complex in 5- but also in 3-dimensional projective space.<para>
+            It must be specified whether the coordinates have to be interpreted as pointwise (contravariant) or hyperplanewise (covariant) values.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.#ctor(Geometry.Projective.HVector,Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex},Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.#ctor(System.Numerics.Complex[],Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.#ctor(System.Double[],Geometry.Projective.CoordinateType)">
+            <summary>
+            The vector data are copied into the coordinates of the new linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex,Geometry.Projective.CoordinateType)">
+            <summary>
+            The coordinates of the new linear complex.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.LinearComplex.vectordual">
+            <summary>
+            The dual internal vector data, i.e. the (hyper)planewise coordinates.<para>
+            Densevector 'vector' contains the pointwise coordinates.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.dualize(MathNet.Numerics.LinearAlgebra.Complex.DenseVector)">
+            <summary>
+            Dualize linear complex-coordinates, i.e. interchange line- and plane-coordinates of a linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.dual(System.Int32)">
+            <summary>
+            Dualize the co- and contravariant indices.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.Clone">
+            <summary>
+            Create a new linear complex, identical to this one.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.ValuesPointwise">
+            <summary>
+            The pointwise (contravariant) coordinates of the linear complex.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.ValuesPlanewise">
+            <summary>
+            The (hyper)planewise (covariant) coordinates of the linear complex.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.MatrixPlaneToPoint">
+            <summary>
+            The matrix of the null-polarity that transforms planes into points.<para>
+            For lines the resulting point is the point where the line meets the plane.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.MatrixPointToPlane">
+            <summary>
+            The matrix of the null-polarity that transforms points into planes.<para>
+            For lines the resulting plane is the plane that is spanned by the point and the line.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.NullPolarity">
+            <summary>
+            The null polarity corresponding to this linear complex.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.scalar">
+            <summary>
+            Calculate the inner product between the point- and planewise coordinates of the linear complex.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.IsSpecial">
+            <summary>
+            Check whether this linear complex is special, i.e. it is a line and its null polarity is degenerated.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.ToLine">
+            <summary>
+            Convert the linear complex to a line when possible, otherwise return null.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.Contains(Geometry.Projective.Line3D)">
+            <summary>
+            Check whether a line belongs to this linear complex of lines.<para>
+            For special linear complexes this is equal to the incidence relationship.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.Pitch">
+            <summary>
+            The pitch of the helical motion associated with the linear complex.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.Axis">
+            <summary>
+            The axis of the helical motion associated with the linear complex.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.GetLines(System.Int32,System.Boolean)">
+            <summary>
+            A copy of some lines in the linear complex, with complex or real coordinates.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.GetLines(System.Int32,System.Boolean,Geometry.Projective.Plane3D)">
+            <summary>
+            A copy of some lines in the linear complex, with complex or real coordinates.<para>
+            Optionally incident with a given plane.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.LinearComplex.GetLines(System.Int32,System.Boolean,Geometry.Projective.Point3D)">
+            <summary>
+            A copy of some lines in the linear complex, with complex or real coordinates.<para>
+            Optionally incident with a given point.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.LinearComplex.Conjugate">
+            <summary>
+            The linear complex with complex conjugate coordinates.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.CoordinateType">
+            <summary>
+            Indicates whether the coordinates belong to:<para>
+              - a pointwise (contravariant) vector</para><para>
+              - a hyperplanewise (covariant) vector</para><para>
+              - or: undetermined.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.CoordinateType.Pointwise">
+            <summary>
+            Point coordinates or derived from point coordinates.<para>
+            Also: 0-dimensional subpsace (point), contravariant.</para>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.CoordinateType.Hyperplanewise">
+            <summary>
+            Hyperplane coordinates or derived from hyperplane coordinates.<para>
+            Also: n-1-dimensional subpsace (line in 2 dimensions, plane in 3 dimensions), covariant.</para>
+            </summary>        
+        </member>
+        <member name="T:Geometry.Projective.Vector2">
+            <summary>
+            Any non-homogeneous vector with 2 complex (or real) coordinates.<para>
+            E.g. a free vector or a position vector in 2-dimensional affine or euclidean space.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.#ctor(MathNet.Numerics.LinearAlgebra.Complex.DenseVector)">
+            <summary>
+            The vector data are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the data of the new vector.<para>
+            Operators in MathNet.Numerics.LinearAlgebra.Complex.DenseVector return the abstract type Vector[Complex]</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.#ctor(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The data are coordinates of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Clone">
+            <summary>
+            Get a copy of the data of this vector.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector2.vector">
+            <summary>
+            The internal vector data.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Vector2.Item(System.Int32)">
+            <summary>
+            The coordinate at position 'index'.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_UnaryNegation(Geometry.Projective.Vector2)">
+            <summary>
+            The negative of the vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_Multiply(Geometry.Projective.Vector2,Geometry.Projective.Vector2)">
+            <summary>
+            The inner- or dot-product of two 2-dimensional vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_Multiply(System.Numerics.Complex,Geometry.Projective.Vector2)">
+            <summary>
+            The product of the vector with a complex (or real) number.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_Multiply(Geometry.Projective.Vector2,System.Numerics.Complex)">
+            <summary>
+            The product of the vector with a complex (or real) number.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_Subtraction(Geometry.Projective.Vector2,Geometry.Projective.Vector2)">
+            <summary>
+            The difference of two vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.op_Addition(Geometry.Projective.Vector2,Geometry.Projective.Vector2)">
+            <summary>
+            The sum of two vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Equals(Geometry.Projective.Vector2)">
+            <summary>
+            Check whether this and another vector have equal coordinates within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Equals(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Check whether this and another vector have equal coordinates within a certain precision.<para>
+            Note that other.Equals(this) returns 'false' because 'this' is not a Vector[Conplex]</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.CrossProduct(Geometry.Projective.Vector2)">
+            <summary>
+            Calculate the cross-product of two 2-dimensional vectors ([0][1]-[1][0]).
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Normalize">
+            <summary>
+            Calculate the normalized vector with unit length.<para>
+            A null value is returned when the vector is zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Perpendicular">
+            <summary>
+            The vector is interpreted as a directional vector and the perpendicular vector (90 degree turn) is returned.<para>
+            When the vector is zero a zero vector is returned</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Norm">
+            <summary>
+            Calculates the euclidean norm of the vector.<para>
+            The root of the sum of squares of the absolute value of each coordinate.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.Distance(Geometry.Projective.Vector2)">
+            <summary>
+            Interpret the vector as a point and calculate<para>
+            the Euclidean distance to another point.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.IsZero">
+            <summary>
+            Check whether all coordinates of this vector are zero with respect to a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.IsValid">
+            <summary>
+            Check whether one of the coordinates is Infinity or NaN.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.IsReal">
+            <summary>
+            Check whether all coordinates are valid and real.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.ToVector">
+            <summary>
+            Get a copy of the raw vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.ToArray">
+            <summary>
+            Get a copy of the data of this vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.ToPoint2D">
+            <summary>
+            The vector is interpreted as a postion vector in a plane and transformed into the corresponding 2D projective point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.ToLine2D(System.Numerics.Complex)">
+            <summary>
+            The vector is interpreted as directional vector of a line in a plane and transformed into the corresponding 2D projective line at a complex "distance" from the origin.<para>
+            The line at infinity is returned when the vector is zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector2.ToString">
+            <summary>
+            A string representation of the type of vector and the values of the vector in the form (a+bi, c+di, ..)
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Vector2.Name">
+            <summary>
+            Possibly a name for the object.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector2.Origin">
+            <summary>
+            (0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector2.EX">
+            <summary>
+            (1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector2.EY">
+            <summary>
+            (0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector2.E">
+            <summary>
+            (1 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Vector3">
+            <summary>
+            Any non-homogeneous vector with 3 complex (or real) coordinates.<para>
+            E.g. a free vector, a position vector, a polar or axial vector in 3-dimensional affine or euclidean space.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(System.Numerics.Complex[])">
+            <summary>
+            The values are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(System.Double[])">
+            <summary>
+            The values are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(MathNet.Numerics.LinearAlgebra.Complex.DenseVector)">
+            <summary>
+            The vector data are copied into the data of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            The vector data are copied into the data of the new vector.<para>
+            Operators in MathNet.Numerics.LinearAlgebra.Complex.DenseVector return the abstract type Vector[Complex]</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            The data are coordinates of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            The data are coordinates of the new vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Clone">
+            <summary>
+            Get a copy of the data of this vector.
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.vector">
+            <summary>
+            The internal vector data.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Vector3.Item(System.Int32)">
+            <summary>
+            The coordinate at position 'index'.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_UnaryNegation(Geometry.Projective.Vector3)">
+            <summary>
+            The negative of the vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_Multiply(Geometry.Projective.Vector3,Geometry.Projective.Vector3)">
+            <summary>
+            The inner- or dot-product of two 3-dimensional vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_Multiply(System.Numerics.Complex,Geometry.Projective.Vector3)">
+            <summary>
+            The product of the vector with a complex (or real) number.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_Multiply(Geometry.Projective.Vector3,System.Numerics.Complex)">
+            <summary>
+            The product of the vector with a complex (or real) number.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_Subtraction(Geometry.Projective.Vector3,Geometry.Projective.Vector3)">
+            <summary>
+            The difference of two vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.op_Addition(Geometry.Projective.Vector3,Geometry.Projective.Vector3)">
+            <summary>
+            The sum of two vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Equals(Geometry.Projective.Vector3)">
+            <summary>
+            Check whether this and another vector have equal coordinates within a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Equals(MathNet.Numerics.LinearAlgebra.Vector{System.Numerics.Complex})">
+            <summary>
+            Check whether this and another vector have equal coordinates within a certain precision.<para>
+            Note that other.Equals(this) returns 'false' because 'this' is not a Vector[Conplex]</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.CrossProduct(Geometry.Projective.Vector3)">
+            <summary>
+            Calculate the outer- or cross-product of two 3-dimensional vectors.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.IsParallel(Geometry.Projective.Vector3)">
+            <summary>
+            Check whether two vectors are parallel.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Normalize">
+            <summary>
+            Calculate the normalized vector with unit length.<para>
+            A null value is returned when the vector is zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Norm">
+            <summary>
+            Calculates the euclidean norm of the vector.<para>
+            The root of the sum of squares of the absolute value of each coordinate.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.Distance(Geometry.Projective.Vector3)">
+            <summary>
+            The two vectors are considered to be spatial positions; calcuate their Euclidean distance.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.IsZero">
+            <summary>
+            Check whether all coordinates of this vector are zero with respect to a certain precision.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.IsValid">
+            <summary>
+            Check whether one of the coordinates is Infinity or NaN.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.IsReal">
+            <summary>
+            Check whether all coordinates are valid and real.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.ToVector">
+            <summary>
+            Get a copy of the raw vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.ToArray">
+            <summary>
+            Get a copy of the data of this vector.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.ToPoint">
+            <summary>
+            The vector is interpreted as a postion vector and transformed into the corresponding projective point.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.ToPlane(System.Numerics.Complex)">
+            <summary>
+            The vector is interpreted as normal to a plane and transformed to the corresponding projective plane at a complex "distance" from the origin.<para>
+            A null value is returned when the vector is zero.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Vector3.ToString">
+            <summary>
+            A string representation of the type of vector and the values of the vector in the form (a+bi, c+di, ..)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.Origin">
+            <summary>
+            (0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.Zero">
+            <summary>
+            (0 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.EX">
+            <summary>
+            (1 0 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.EY">
+            <summary>
+            (0 1 0)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.EZ">
+            <summary>
+            (0 0 1)
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.Vector3.E">
+            <summary>
+            (1 1 1)
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentArraysSameLength">
+            <summary>
+              Looks up a localized string similar to The array arguments must have the same length..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentArrayWrongLength">
+            <summary>
+              Looks up a localized string similar to The given array is the wrong length. Should be {0}..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentBetween0And1">
+            <summary>
+              Looks up a localized string similar to The argument must be between 0 and 1..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentCannotBeBetweenOneAndNegativeOne">
+            <summary>
+              Looks up a localized string similar to Value cannot be in the range -1 &lt; x &lt; 1..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentEven">
+            <summary>
+              Looks up a localized string similar to Value must be even..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentHistogramContainsNot">
+            <summary>
+              Looks up a localized string similar to The histogram does not contains the value..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentInIntervalXYInclusive">
+            <summary>
+              Looks up a localized string similar to Value is expected to be between {0} and {1} (including {0} and {1})..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentItemNull">
+            <summary>
+              Looks up a localized string similar to At least one item of {0} is a null reference (Nothing in Visual Basic)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentLessThanOne">
+            <summary>
+              Looks up a localized string similar to Value must be greater than or equal to one..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentLowerBoundLargerThanUpperBound">
+            <summary>
+              Looks up a localized string similar to han the given upper bound..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixDimensions">
+            <summary>
+              Looks up a localized string similar to Matrix dimensions must agree..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixDoesNotExist">
+            <summary>
+              Looks up a localized string similar to The requested matrix does not exist..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixIndexOutOfRange">
+            <summary>
+              Looks up a localized string similar to The matrix indices must not be out of range of the given matrix..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixNotRankDeficient">
+            <summary>
+              Looks up a localized string similar to Matrix must not be rank deficient..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixNotSingular">
+            <summary>
+              Looks up a localized string similar to Matrix must not be singular..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixPositiveDefinite">
+            <summary>
+              Looks up a localized string similar to Matrix must be positive definite..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSameColumnDimension">
+            <summary>
+              Looks up a localized string similar to Matrix column dimensions must agree..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSameRowDimension">
+            <summary>
+              Looks up a localized string similar to Matrix row dimensions must agree..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSingleColumn">
+            <summary>
+              Looks up a localized string similar to Matrix must have exactly one column..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSingleColumnRow">
+            <summary>
+              Looks up a localized string similar to Matrix must have exactly one column and row, thus have only one cell..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSingleRow">
+            <summary>
+              Looks up a localized string similar to Matrix must have exactly one row..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSquare">
+            <summary>
+              Looks up a localized string similar to Matrix must be square..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSymmetric">
+            <summary>
+              Looks up a localized string similar to Matrix must be symmetric..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMatrixSymmetricPositiveDefinite">
+            <summary>
+              Looks up a localized string similar to Matrix must be symmetric positive definite..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMinValueGreaterThanMaxValue">
+            <summary>
+              Looks up a localized string similar to In the specified range, the minimum is greater than maximum..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentMustBePositive">
+            <summary>
+              Looks up a localized string similar to Value must be positive..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentNotInfinityNaN">
+            <summary>
+              Looks up a localized string similar to Value must neither be infinite nor NaN..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentNotNegative">
+            <summary>
+              Looks up a localized string similar to Value must not be negative (zero is ok)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentNull">
+            <summary>
+              Looks up a localized string similar to {0} is a null reference (Nothing in Visual Basic)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentOdd">
+            <summary>
+              Looks up a localized string similar to Value must be odd..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentOutOfRangeGreater">
+            <summary>
+              Looks up a localized string similar to {0} must be greater than {1}..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentOutOfRangeGreaterEqual">
+            <summary>
+              Looks up a localized string similar to {0} must be greater than or equal to {1}..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentParameterSetInvalid">
+            <summary>
+              Looks up a localized string similar to The chosen parameter set is invalid (probably some value is out of range)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentParseComplexNumber">
+            <summary>
+              Looks up a localized string similar to The given expression does not represent a complex number..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentPositive">
+            <summary>
+              Looks up a localized string similar to Value must be positive (and not zero)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentPowerOfTwo">
+            <summary>
+              Looks up a localized string similar to Size must be a Power of Two..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentPowerOfTwoEveryDimension">
+            <summary>
+              Looks up a localized string similar to Size must be a Power of Two in every dimension..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentRangeLessEqual">
+            <summary>
+              Looks up a localized string similar to The range between {0} and {1} must be less than or equal to {2}..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentReferenceDifferent">
+            <summary>
+              Looks up a localized string similar to Arguments must be different objects..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentSingleDimensionArray">
+            <summary>
+              Looks up a localized string similar to Array must have exactly one dimension (and not be null)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentTooLarge">
+            <summary>
+              Looks up a localized string similar to Value is too large..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentTooLargeForIterationLimit">
+            <summary>
+              Looks up a localized string similar to Value is too large for the current iteration limit..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentTypeMismatch">
+            <summary>
+              Looks up a localized string similar to Type mismatch..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentVectorLengthsMultipleOf">
+            <summary>
+              Looks up a localized string similar to Array length must be a multiple of {0}..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentVectorsSameLength">
+            <summary>
+              Looks up a localized string similar to All vectors must have the same dimensionality..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArgumentVectorThreeDimensional">
+            <summary>
+              Looks up a localized string similar to The vector must have 3 dimensions..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ArrayTooSmall">
+            <summary>
+              Looks up a localized string similar to The given array is too small. It must be at least {0} long..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.BigEndianNotSupported">
+            <summary>
+              Looks up a localized string similar to Big endian files are not supported..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.CollectionEmpty">
+            <summary>
+              Looks up a localized string similar to The supplied collection is empty..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ComplexMatricesNotSupported">
+            <summary>
+              Looks up a localized string similar to Complex matrices are not supported..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ConvergenceFailed">
+            <summary>
+              Looks up a localized string similar to An algorithm failed to converge..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.FeaturePlannedButNotImplementedYet">
+            <summary>
+              Looks up a localized string similar to This feature is not implemented yet (but is planned)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.FileDoesNotExist">
+            <summary>
+              Looks up a localized string similar to The given file doesn&apos;t exist..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidDistributionParameters">
+            <summary>
+              Looks up a localized string similar to Invalid parameterization for the distribution..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidLeftBoundaryCondition">
+            <summary>
+              Looks up a localized string similar to Invalid Left Boundary Condition..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidOperationAccumulatorEmpty">
+            <summary>
+              Looks up a localized string similar to The operation could not be performed because the accumulator is empty..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidOperationHistogramEmpty">
+            <summary>
+              Looks up a localized string similar to The operation could not be performed because the histogram is empty..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidOperationHistogramNotEnoughPoints">
+            <summary>
+              Looks up a localized string similar to Not enough points in the distribution..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidOperationNoSamplesProvided">
+            <summary>
+              Looks up a localized string similar to No Samples Provided. Preparation Required..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.InvalidRightBoundaryCondition">
+            <summary>
+              Looks up a localized string similar to Invalid Right Boundary Condition..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MatlabDateHeaderFormat">
+            <summary>
+              Looks up a localized string similar to ddd MMM dd HH:mm:ss yyyy.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MatrixColumnsMustBePositive">
+            <summary>
+              Looks up a localized string similar to The number of columns of a matrix must be positive..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MatrixRowsMustBePositive">
+            <summary>
+              Looks up a localized string similar to The number of rows of a matrix must be positive..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MatrixRowsOrColumnsMustBePositive">
+            <summary>
+              Looks up a localized string similar to The number of rows or columns of a matrix must be positive..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MoreThan2D">
+            <summary>
+              Looks up a localized string similar to Only 1 and 2 dimensional arrays are supported..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.MustContainAtLeast">
+            <summary>
+              Looks up a localized string similar to Data must contain at least {0} values..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.NameCannotContainASpace">
+            <summary>
+              Looks up a localized string similar to Name cannot contain a space. name:  {0}.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.NotSupportedType">
+            <summary>
+              Looks up a localized string similar to {0} is not a supported type..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.PartialOrderException">
+            <summary>
+              Looks up a localized string similar to The two arguments can&apos;t be compared (maybe they are part of a partial ordering?).
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.PermutationAsIntArrayInvalid">
+            <summary>
+              Looks up a localized string similar to The integer array does not represent a valid permutation..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.ProposalDistributionNoUpperBound">
+            <summary>
+              Looks up a localized string similar to The sampler&apos;s proposal distribution is not upper bounding the target density..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.RowsLessThanColumns">
+            <summary>
+              Looks up a localized string similar to The number of rows must greater than or equal to the number of columns..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.SingularVectorsNotComputed">
+            <summary>
+              Looks up a localized string similar to The singular vectors were not computed..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.SpecialCasePlannedButNotImplementedYet">
+            <summary>
+              Looks up a localized string similar to This special case is not supported yet (but is planned)..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.StopCriteriumDuplicate">
+            <summary>
+              Looks up a localized string similar to The given stop criterium already exist in the collection..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.StopCriteriumMissing">
+            <summary>
+              Looks up a localized string similar to There is no stop criterium in the collection..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.StringNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to String parameter cannot be empty or null..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.UndefinedMoment">
+            <summary>
+              Looks up a localized string similar to The moment of the distribution is undefined..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.UserDefinedProviderNotSpecified">
+            <summary>
+              Looks up a localized string similar to A user defined provider has not been specified..
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Properties.Resources.WorkArrayTooSmall">
+            <summary>
+              Looks up a localized string similar to The given work array is too small. Check work[0] for the corret size..
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.Set`1">
+            <summary>
+            A set of points, lines or planes or other homogeneous vectors of the same type and dimension.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Set`1.#ctor(`0[])">
+            <summary>
+            The values become the elements of the set.<para>
+            All elements must be of the same type and dimension.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Set`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            The values become the elements of the set.<para>
+            All elements must be of the same type and dimension.</para>
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Set`1.Item(System.Int32)">
+            <summary>
+            The element of the set at position 'index'.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Set`1.Count">
+            <summary>
+            The number of elements in the set.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.Set`1.HVectorDimension">
+            <summary>
+            The number of coordinates of each element in the set.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.Set`1.ToHVector">
+            <summary>
+            Convert the set to a set of raw homogeneous vectors.
+            </summary>
+        </member>
+        <member name="T:Geometry.Projective.ParameterList`1">
+            <summary>
+            A list with Values of type <typeparamref name ="T"/> and a Function: complex t => <typeparamref name ="T"/>(t) so that new elements of type <typeparamref name ="T"/> for the list can be calculated.
+            </summary>
+            <typeparam name="T">The element type of the parameter list.</typeparam>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.#ctor(System.Func{System.Numerics.Complex,`0})">
+            <summary>
+            Create a new, empty list with Values of type <typeparamref name ="T"/> and a Function: complex t => <typeparamref name ="T"/>(t) so that new elements of type T for the list can be calculated.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ParameterList`1.Function">
+            <summary>
+            The Function: complex t => <typeparamref name ="T"/>(t) with which new elements of type <typeparamref name ="T"/> for the list can be calculated.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ParameterList`1.Count">
+            <summary>
+            The number of elements in the list.
+            </summary>
+        </member>
+        <member name="P:Geometry.Projective.ParameterList`1.Values">
+            <summary>
+            The list with Values of type <typeparamref name ="T"/>
+            </summary>
+        </member>
+        <member name="F:Geometry.Projective.ParameterList`1.ValuesAndParameters">
+            <summary>
+            The list with Values of type <typeparamref name ="T"/> and complex parameters t with which they were calculated.<para>
+            The parameter t is 'null' when the elements of type <typeparamref name ="T"/> were added without calculation.</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.Add(System.Numerics.Complex)">
+            <summary>
+            Calculate the element <typeparamref name ="T"/> using t as parameter and when not null, add it to the list.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.Add(`0,System.Nullable{System.Numerics.Complex})">
+            <summary>
+            Add an element of type <typeparamref name ="T"/> to the list, without calculation, with or without the parameter t.<para>
+            When t is given, it is not checked that newelement == Function(t).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.Add(System.Tuple{System.Nullable{System.Numerics.Complex},`0})">
+            <summary>
+            Add an element of type <typeparamref name ="T"/> to the list, without calculation, with or without the parameter t.<para>
+            When t is given, it is not checked that newelement == Function(t).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Add a range of elements of type <typeparamref name ="T"/> to the list, without calculation, without the parameters t.
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.AddRange(System.Collections.Generic.IEnumerable{System.Tuple{System.Nullable{System.Numerics.Complex},`0}})">
+            <summary>
+            Add a range of elements of type <typeparamref name ="T"/> to the list, with or without calculation, with or without the parameters t.<para>
+            When some of the parameters t are given, it is not checked that for each newelement == Function(t).</para>
+            </summary>
+        </member>
+        <member name="M:Geometry.Projective.ParameterList`1.Chain``1(System.Func{`0,``0})">
+            <summary>
+            Create a parameter list of type <typeparamref name ="T"/> as a chain of a parameter list of type <typeparamref name ="U"/> and and a Function: <typeparamref name ="U"/> => <typeparamref name ="T"/> so that new elements of type <typeparamref name ="T"/> for the list can be calculated.
+            </summary>
+            <typeparam name="U">The element type of the new parameter list.</typeparam>
+        </member>
+    </members>
+</doc>
