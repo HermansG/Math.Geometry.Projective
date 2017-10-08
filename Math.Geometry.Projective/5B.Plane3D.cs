@@ -46,7 +46,7 @@ namespace Geometry.Projective
         /// The vector data are copied into the coordinates of the new plane.<para>
         /// The first coordinate will be Zero.</para>
         /// </summary>
-        public Plane3D(Vector3 vector3d) : this(vector3d[0], vector3d[1], vector3d[2]) { }
+        public Plane3D(VectorC3 vector3d) : this(vector3d[0], vector3d[1], vector3d[2]) { }
         void initialize()
         {
             if (vector.Count != 4) throw new ArgumentException("4 coordinates required");
@@ -62,7 +62,7 @@ namespace Geometry.Projective
         /// <summary>
         /// Return the 3-dimensional vector normal to the plane. The vector will be zero when the plane is at infinity.
         /// </summary>
-        public Vector3 NormalVector { get { return new Vector3(this[1], this[2], this[3]); } }
+        public VectorC3 NormalVector { get { return new VectorC3(this[1], this[2], this[3]); } }
         /// <summary>
         /// Interpret the plane as an Euclidean plane and return the distance from this plane to the origin.
         /// </summary>

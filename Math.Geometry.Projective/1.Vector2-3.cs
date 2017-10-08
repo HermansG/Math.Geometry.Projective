@@ -12,13 +12,13 @@ namespace Geometry.Projective
     /// Any non-homogeneous vector with 2 complex (or real) coordinates.<para>
     /// E.g. a free vector or a position vector in 2-dimensional affine or euclidean space.</para>
     /// </summary>
-    public class Vector2
+    public class VectorC2
     {
         #region constructors
         /// <summary>
         /// The values are copied into the data of the new vector.
         /// </summary>
-        public Vector2(Complex[] values)
+        public VectorC2(Complex[] values)
         {
             if (values == null) throw new ArgumentNullException("values");
             vector = DenseVector.OfEnumerable(values);
@@ -27,7 +27,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The values are copied into the data of the new vector.
         /// </summary>
-        public Vector2(double[] values)
+        public VectorC2(double[] values)
         {
             if (values == null) throw new ArgumentNullException("values");
             vector = DenseVector.OfEnumerable(values.ToComplex());
@@ -36,7 +36,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The vector data are copied into the data of the new vector.
         /// </summary>
-        public Vector2(DenseVector vector)
+        public VectorC2(DenseVector vector)
         {
             if (vector == null) throw new ArgumentNullException("vector");
             this.vector = DenseVector.OfVector(vector);
@@ -46,7 +46,7 @@ namespace Geometry.Projective
         /// The vector data are copied into the data of the new vector.<para>
         /// Operators in MathNet.Numerics.LinearAlgebra.Complex.DenseVector return the abstract type Vector[Complex]</para>
         /// </summary>
-        Vector2(Vector<Complex> vector)
+        VectorC2(Vector<Complex> vector)
         {
             if (vector == null) throw new ArgumentNullException("vector");
             this.vector = DenseVector.OfVector(vector);
@@ -55,7 +55,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The data are coordinates of the new vector.
         /// </summary>
-        public Vector2(Complex x, Complex y)
+        public VectorC2(Complex x, Complex y)
         {
             this.vector = new DenseVector(new Complex[] { x, y });
             init();
@@ -70,9 +70,9 @@ namespace Geometry.Projective
         /// <summary>
         /// Get a copy of the data of this vector.
         /// </summary>
-        public Vector2 Clone()
+        public VectorC2 Clone()
         {
-            return new Vector2(vector);
+            return new VectorC2(vector);
         }
 
         /// <summary>
@@ -88,60 +88,60 @@ namespace Geometry.Projective
         /// <summary>
         /// The negative of the vector.
         /// </summary>
-        public static Vector2 operator -(Vector2 rightSide)
+        public static VectorC2 operator -(VectorC2 value)
         {
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return -1 * rightSide;
+            if (value == null) throw new ArgumentNullException("value");
+            return -1 * value;
         }
         /// <summary>
         /// The inner- or dot-product of two 2-dimensional vectors.
         /// </summary>
-        public static Complex operator *(Vector2 leftSide, Vector2 rightSide)
+        public static Complex operator *(VectorC2 left, VectorC2 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return leftSide.vector * rightSide.vector;
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return left.vector * right.vector;
         }
         /// <summary>
         /// The product of the vector with a complex (or real) number.
         /// </summary>
-        public static Vector2 operator *(Complex leftSide, Vector2 rightSide)
+        public static VectorC2 operator *(Complex left, VectorC2 right)
         {
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector2(leftSide * rightSide.vector);
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC2(left * right.vector);
         }
         /// <summary>
         /// The product of the vector with a complex (or real) number.
         /// </summary>
-        public static Vector2 operator *(Vector2 leftSide, Complex rightSide)
+        public static VectorC2 operator *(VectorC2 left, Complex right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            return new Vector2(rightSide * leftSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            return new VectorC2(right * left.vector);
         }
         /// <summary>
         /// The difference of two vectors.
         /// </summary>
-        public static Vector2 operator -(Vector2 leftSide, Vector2 rightSide)
+        public static VectorC2 operator -(VectorC2 left, VectorC2 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector2(leftSide.vector - rightSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC2(left.vector - right.vector);
         }
         /// <summary>
         /// The sum of two vectors.
         /// </summary>
-        public static Vector2 operator +(Vector2 leftSide, Vector2 rightSide)
+        public static VectorC2 operator +(VectorC2 left, VectorC2 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector2(leftSide.vector + rightSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC2(left.vector + right.vector);
         }
         #endregion
 
         /// <summary>
         /// Check whether this and another vector have equal coordinates within a certain precision.
         /// </summary>
-        public bool Equals(Vector2 other)
+        public bool Equals(VectorC2 other)
         {
             if (other == null) throw new ArgumentNullException("other");
             var difference = vector - other.vector;
@@ -163,7 +163,7 @@ namespace Geometry.Projective
         /// <summary>
         /// Calculate the cross-product of two 2-dimensional vectors ([0][1]-[1][0]).
         /// </summary>
-        public Complex CrossProduct(Vector2 other)
+        public Complex CrossProduct(VectorC2 other)
         {
             return this[0] * other[1] - this[1] * other[0];
         }
@@ -172,19 +172,19 @@ namespace Geometry.Projective
         /// Calculate the normalized vector with unit length.<para>
         /// A null value is returned when the vector is zero.</para>
         /// </summary>
-        public Vector2 Normalize()
+        public VectorC2 Normalize()
         {
             if (vector.IsZero()) return null;
-            return new Vector2(vector.Normalize(2));
+            return new VectorC2(vector.Normalize(2));
         }
 
         /// <summary>
         /// The vector is interpreted as a directional vector and the perpendicular vector (90 degree turn) is returned.<para>
         /// When the vector is zero a zero vector is returned</para>
         /// </summary>
-        public Vector2 Perpendicular()
+        public VectorC2 Perpendicular()
         {
-            return new Vector2(-vector[1], vector[0]);
+            return new VectorC2(-vector[1], vector[0]);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace Geometry.Projective
         /// Interpret the vector as a point and calculate<para>
         /// the Euclidean distance to another point.</para>
         /// </summary>
-        public double Distance(Vector2 other) { return (this - other).Norm(); }
+        public double Distance(VectorC2 other) { return (this - other).Norm(); }
 
         /// <summary>
         /// Check whether all coordinates of this vector are zero with respect to a certain precision.
@@ -264,19 +264,19 @@ namespace Geometry.Projective
         /// <summary>
         /// (0 0)
         /// </summary>
-        public static readonly Vector2 Origin = new Vector2(0, 0);
+        public static readonly VectorC2 Origin = new VectorC2(0, 0);
         /// <summary>
         /// (1 0)
         /// </summary>
-        public static readonly Vector2 EX = new Vector2(1, 0);
+        public static readonly VectorC2 EX = new VectorC2(1, 0);
         /// <summary>
         /// (0 1)
         /// </summary>
-        public static readonly Vector2 EY = new Vector2(0, 1);
+        public static readonly VectorC2 EY = new VectorC2(0, 1);
         /// <summary>
         /// (1 1)
         /// </summary>
-        public static readonly Vector2 E = new Vector2(1, 1);
+        public static readonly VectorC2 E = new VectorC2(1, 1);
         #endregion
     }
 
@@ -284,13 +284,13 @@ namespace Geometry.Projective
     /// Any non-homogeneous vector with 3 complex (or real) coordinates.<para>
     /// E.g. a free vector, a position vector, a polar or axial vector in 3-dimensional affine or euclidean space.</para>
     /// </summary>
-    public class Vector3
+    public class VectorC3
     {
         #region constructors
         /// <summary>
         /// The values are copied into the data of the new vector.
         /// </summary>
-        public Vector3(Complex[] values)
+        public VectorC3(Complex[] values)
         {
             if (values == null) throw new ArgumentNullException("values");
             vector = DenseVector.OfEnumerable(values);
@@ -299,7 +299,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The values are copied into the data of the new vector.
         /// </summary>
-        public Vector3(double[] values)
+        public VectorC3(double[] values)
         {
             if (values == null) throw new ArgumentNullException("values");
             vector = DenseVector.OfEnumerable(values.ToComplex());
@@ -308,7 +308,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The vector data are copied into the data of the new vector.
         /// </summary>
-        public Vector3(DenseVector vector)
+        public VectorC3(DenseVector vector)
         {
             if (vector == null) throw new ArgumentNullException("vector");
             this.vector = DenseVector.OfVector(vector);
@@ -318,7 +318,7 @@ namespace Geometry.Projective
         /// The vector data are copied into the data of the new vector.<para>
         /// Operators in MathNet.Numerics.LinearAlgebra.Complex.DenseVector return the abstract type Vector[Complex]</para>
         /// </summary>
-        Vector3(Vector<Complex> vector)
+        VectorC3(Vector<Complex> vector)
         {
             if (vector == null) throw new ArgumentNullException("vector");
             this.vector = DenseVector.OfVector(vector);
@@ -327,7 +327,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The data are coordinates of the new vector.
         /// </summary>
-        public Vector3(Complex x, Complex y, Complex z)
+        public VectorC3(Complex x, Complex y, Complex z)
         {
             vector = new DenseVector(new Complex[] { x, y, z });
             init();
@@ -335,7 +335,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The data are coordinates of the new vector.
         /// </summary>
-        public Vector3(double x, double y, double z)
+        public VectorC3(double x, double y, double z)
         {
             vector = new DenseVector(new Complex[] { x, y, z });
             init();
@@ -350,9 +350,9 @@ namespace Geometry.Projective
         /// <summary>
         /// Get a copy of the data of this vector.
         /// </summary>
-        public Vector3 Clone()
+        public VectorC3 Clone()
         {
-            return new Vector3(vector);
+            return new VectorC3(vector);
         }
 
         /// <summary>
@@ -368,7 +368,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The negative of the vector.
         /// </summary>
-        public static Vector3 operator -(Vector3 rightSide)
+        public static VectorC3 operator -(VectorC3 rightSide)
         {
             if (rightSide == null) throw new ArgumentNullException("rightside");
             return -1 * rightSide;
@@ -376,52 +376,52 @@ namespace Geometry.Projective
         /// <summary>
         /// The inner- or dot-product of two 3-dimensional vectors.
         /// </summary>
-        public static Complex operator *(Vector3 leftSide, Vector3 rightSide)
+        public static Complex operator *(VectorC3 left, VectorC3 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return leftSide.vector * rightSide.vector;
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return left.vector * right.vector;
         }
         /// <summary>
         /// The product of the vector with a complex (or real) number.
         /// </summary>
-        public static Vector3 operator *(Complex leftSide, Vector3 rightSide)
+        public static VectorC3 operator *(Complex left, VectorC3 right)
         {
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector3(leftSide * rightSide.vector);
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC3(left * right.vector);
         }
         /// <summary>
         /// The product of the vector with a complex (or real) number.
         /// </summary>
-        public static Vector3 operator *(Vector3 leftSide, Complex rightSide)
+        public static VectorC3 operator *(VectorC3 left, Complex right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            return new Vector3(rightSide * leftSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            return new VectorC3(right * left.vector);
         }
         /// <summary>
         /// The difference of two vectors.
         /// </summary>
-        public static Vector3 operator -(Vector3 leftSide, Vector3 rightSide)
+        public static VectorC3 operator -(VectorC3 left, VectorC3 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector3(leftSide.vector - rightSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC3(left.vector - right.vector);
         }
         /// <summary>
         /// The sum of two vectors.
         /// </summary>
-        public static Vector3 operator +(Vector3 leftSide, Vector3 rightSide)
+        public static VectorC3 operator +(VectorC3 left, VectorC3 right)
         {
-            if (leftSide == null) throw new ArgumentNullException("leftside");
-            if (rightSide == null) throw new ArgumentNullException("rightside");
-            return new Vector3(leftSide.vector + rightSide.vector);
+            if (left == null) throw new ArgumentNullException("left");
+            if (right == null) throw new ArgumentNullException("right");
+            return new VectorC3(left.vector + right.vector);
         }
         #endregion
 
         /// <summary>
         /// Check whether this and another vector have equal coordinates within a certain precision.
         /// </summary>
-        public bool Equals(Vector3 other)
+        public bool Equals(VectorC3 other)
         {
             if (other == null) throw new ArgumentNullException("other");
             var difference = vector - other.vector;
@@ -443,20 +443,20 @@ namespace Geometry.Projective
         /// <summary>
         /// Calculate the outer- or cross-product of two 3-dimensional vectors.
         /// </summary>
-        public Vector3 CrossProduct(Vector3 other)
+        public VectorC3 CrossProduct(VectorC3 other)
         {
             if (other == null) throw new ArgumentNullException("other");
             Complex[] values = new Complex[3];
             values[0] = this[1] * other[2] - this[2] * other[1];
             values[1] = this[2] * other[0] - this[0] * other[2];
             values[2] = this[0] * other[1] - this[1] * other[0];
-            return new Vector3(values);
+            return new VectorC3(values);
         }
 
         /// <summary>
         /// Check whether two vectors are parallel.
         /// </summary>
-        public bool IsParallel(Vector3 other)
+        public bool IsParallel(VectorC3 other)
         {
             return CrossProduct(other).IsZero();
         }
@@ -465,10 +465,10 @@ namespace Geometry.Projective
         /// Calculate the normalized vector with unit length.<para>
         /// A null value is returned when the vector is zero.</para>
         /// </summary>
-        public Vector3 Normalize()
+        public VectorC3 Normalize()
         {
             if (vector.IsZero()) return null;
-            return new Vector3(vector.Normalize(2));
+            return new VectorC3(vector.Normalize(2));
         }
 
         /// <summary>
@@ -480,7 +480,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The two vectors are considered to be spatial positions; calcuate their Euclidean distance.
         /// </summary>
-        public Complex Distance(Vector3 other)
+        public Complex Distance(VectorC3 other)
         {
             return (this - other).Norm();
         }
@@ -543,27 +543,27 @@ namespace Geometry.Projective
         /// <summary>
         /// (0 0 0)
         /// </summary>
-        public static readonly Vector3 Origin = new Vector3(0, 0, 0);
+        public static readonly VectorC3 Origin = new VectorC3(0, 0, 0);
         /// <summary>
         /// (0 0 0)
         /// </summary>
-        public static readonly Vector3 Zero = new Vector3(0, 0, 0);
+        public static readonly VectorC3 Zero = new VectorC3(0, 0, 0);
         /// <summary>
         /// (1 0 0)
         /// </summary>
-        public static readonly Vector3 EX = new Vector3(1, 0, 0);
+        public static readonly VectorC3 EX = new VectorC3(1, 0, 0);
         /// <summary>
         /// (0 1 0)
         /// </summary>
-        public static readonly Vector3 EY = new Vector3(0, 1, 0);
+        public static readonly VectorC3 EY = new VectorC3(0, 1, 0);
         /// <summary>
         /// (0 0 1)
         /// </summary>
-        public static readonly Vector3 EZ = new Vector3(0, 0, 1);
+        public static readonly VectorC3 EZ = new VectorC3(0, 0, 1);
         /// <summary>
         /// (1 1 1)
         /// </summary>
-        public static readonly Vector3 E = new Vector3(1, 1, 1);
+        public static readonly VectorC3 E = new VectorC3(1, 1, 1);
         #endregion
     }
 }

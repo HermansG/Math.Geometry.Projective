@@ -41,7 +41,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The direction and moment vector are considered to be the pointwise coordinates of the new line.
         /// </summary>
-        public Line3D(Vector3 direction, Vector3 moment) : this(new Complex[] { direction[0], direction[1], direction[2], moment[0], moment[1], moment[2] }, CoordinateType.Pointwise) { }
+        public Line3D(VectorC3 direction, VectorC3 moment) : this(new Complex[] { direction[0], direction[1], direction[2], moment[0], moment[1], moment[2] }, CoordinateType.Pointwise) { }
         /// <summary>
         /// The line connecting two distinct, different points.<para>
         /// When the points are equal, the return value is 'null'.</para>
@@ -97,12 +97,12 @@ namespace Geometry.Projective
         /// The direction vector of this line in space.<para>
         /// The local coordinates in the plane at infinity</para>
         /// </summary>
-        public Vector3 DirectionVector { get { return new Vector3(vector[0], vector[1], vector[2]); } }
+        public VectorC3 DirectionVector { get { return new VectorC3(vector[0], vector[1], vector[2]); } }
         /// <summary>
         /// The moment vector of this line in space.<para>
         /// The local coordinates in the bundle of lines through the origin.</para>
         /// </summary>
-        public Vector3 MomentVector { get { return new Vector3(vectordual[0], vectordual[1], vectordual[2]); } }
+        public VectorC3 MomentVector { get { return new VectorC3(vectordual[0], vectordual[1], vectordual[2]); } }
 
         #region points and planes
         // at least two vectors are valid points

@@ -63,7 +63,7 @@ namespace Geometry.Projective
         /// The affine or Euclidean values (complex or real) are copied into the coordinates of the new point.<para>
         /// The first coordinate will be One.</para>
         /// </summary>
-        public Point2D(Vector2 position) : this(new Complex[] { Complex.One, position[0], position[1] }) { }
+        public Point2D(VectorC2 position) : this(new Complex[] { Complex.One, position[0], position[1] }) { }
         #endregion
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Geometry.Projective
         /// </summary>
         public double DistanceOrigin()
         {
-            var arrow = this.ToAffine() - Vector2.Origin;
+            var arrow = this.ToAffine() - VectorC2.Origin;
             return arrow.Norm();
         }
 
@@ -117,29 +117,29 @@ namespace Geometry.Projective
         /// The corresponding 2-dimensional affine or euclidean coordinates of the point are returned.<para>
         /// When the point is at infinity, 'null' is returned.</para>
         /// </summary>
-        public Vector2 ToAffine()
+        public VectorC2 ToAffine()
         {
             if (vector[0].IsZero()) return null;
-            else return new Vector2(vector[1] / vector[0], vector[2] / vector[0]);
+            else return new VectorC2(vector[1] / vector[0], vector[2] / vector[0]);
         }
 
         /// <summary>
         /// When the point is at infinity, its remaining 2-dimensional affine or euclidean coordinates are returned.<para>
         /// Otherwise 'null' is returned.</para>
         /// </summary>
-        public Vector2 AsDirection()
+        public VectorC2 AsDirection()
         {
             if (vector[0].IsZero())
             {
-                var rv = new Vector2(vector[1], vector[2]).Normalize();
-                if ((rv * Vector2.EX).Real.IsZero())
+                var rv = new VectorC2(vector[1], vector[2]).Normalize();
+                if ((rv * VectorC2.EX).Real.IsZero())
                 {
-                    if ((rv * Vector2.EY).Real < 0)
+                    if ((rv * VectorC2.EY).Real < 0)
                     {
                         return -rv;
                     }
                 }
-                else if ((rv * Vector2.EX).Real < 0)
+                else if ((rv * VectorC2.EX).Real < 0)
                 {
                     return -rv;
                 }

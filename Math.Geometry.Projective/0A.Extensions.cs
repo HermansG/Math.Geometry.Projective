@@ -89,7 +89,7 @@ namespace Geometry.Projective
         /// Calculate the factor f so that B = f * A.<para>
         /// When the 3D-vectors A and B are not linear dependent the return value is 'null'.</para>
         /// </summary>
-        public static Complex? LinearDependentFactor(Vector3 A, Vector3 B)
+        public static Complex? LinearDependentFactor(VectorC3 A, VectorC3 B)
         {
             return LinearDependant(A.ToArray(), B.ToArray());
         }

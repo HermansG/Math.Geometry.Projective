@@ -70,7 +70,7 @@ namespace Geometry.Projective
         /// <summary>
         /// Return the 2-dimensional direction vector of the line. The vector will be zero when the line is at infinity.
         /// </summary>
-        public Vector2 Direction() { return new Vector2(this[2], -this[1]); }
+        public VectorC2 Direction() { return new VectorC2(this[2], -this[1]); }
 
         /// <summary>
         /// Return the offset on the x-axis.

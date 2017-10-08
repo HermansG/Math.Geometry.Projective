@@ -39,11 +39,11 @@ namespace CorelDraw.Automation
         /// <summary>
         /// Nota bene: the origin X = 0, Y = 0 is always the BottomLeft corner of the ActivePage.
         /// </summary>
-        public Vector2 CenterOfPaper { get { return new Vector2(Page.SizeWidth / 2, Page.SizeHeight / 2); } }
-        public Vector2 TopLeft { get { return new Vector2(CenterOfPaper[0] - HalfPaperWidth, CenterOfPaper[1] + HalfPaperHeight); } }
-        public Vector2 TopRight { get { return new Vector2(CenterOfPaper[0] + HalfPaperWidth, CenterOfPaper[1] + HalfPaperHeight); } }
-        public Vector2 BottomLeft { get { return new Vector2(CenterOfPaper[0] - HalfPaperWidth, CenterOfPaper[1] - HalfPaperHeight); } }
-        public Vector2 BottomRight { get { return new Vector2(CenterOfPaper[0] + HalfPaperWidth, CenterOfPaper[1] - HalfPaperHeight); } }
+        public VectorC2 CenterOfPaper { get { return new VectorC2(Page.SizeWidth / 2, Page.SizeHeight / 2); } }
+        public VectorC2 TopLeft { get { return new VectorC2(CenterOfPaper[0] - HalfPaperWidth, CenterOfPaper[1] + HalfPaperHeight); } }
+        public VectorC2 TopRight { get { return new VectorC2(CenterOfPaper[0] + HalfPaperWidth, CenterOfPaper[1] + HalfPaperHeight); } }
+        public VectorC2 BottomLeft { get { return new VectorC2(CenterOfPaper[0] - HalfPaperWidth, CenterOfPaper[1] - HalfPaperHeight); } }
+        public VectorC2 BottomRight { get { return new VectorC2(CenterOfPaper[0] + HalfPaperWidth, CenterOfPaper[1] - HalfPaperHeight); } }
         public Document Document { get; private set; }
         public Page Page { get; private set; }
         public Layer Layer { get; private set; }
@@ -85,7 +85,7 @@ namespace CorelDraw.Automation
         }
 
         Dictionary<string, Shape> points = new Dictionary<string, Shape>();
-        public Shape CreatePoint(Vector2 center, double radius = 0.3, Color color = null, string name = null)
+        public Shape CreatePoint(VectorC2 center, double radius = 0.3, Color color = null, string name = null)
         {
             Shape point = null;
             string key = radius.ToString("#.#####") + "|";
@@ -117,12 +117,12 @@ namespace CorelDraw.Automation
             return point;
         }
 
-        public Shape CreateCircle(Vector2 center, double radius, string name = null)
+        public Shape CreateCircle(VectorC2 center, double radius, string name = null)
         {
             return CreateEllipse(center, radius, radius, name);
         }
 
-        public Shape CreateEllipse(Vector2 center, double radius_horizontal, double radius_vertical, string name = null)
+        public Shape CreateEllipse(VectorC2 center, double radius_horizontal, double radius_vertical, string name = null)
         {
             var shape = Layer.CreateEllipse2(center[0].Real, center[1].Real, radius_horizontal, radius_vertical);
 
@@ -133,7 +133,7 @@ namespace CorelDraw.Automation
             return shape;
         }
 
-        public Shape CreateRectangle(Vector2 center, double width, double height, string name = null)
+        public Shape CreateRectangle(VectorC2 center, double width, double height, string name = null)
         {
             // Documentation states that the first 2 parameters x, y are the UL corner; if I am not mistaken they are the BL corner
             var shape = Layer.CreateRectangle2(center[0].Real - 0.5 * width, center[1].Real - 0.5 * height, width, height);
@@ -145,7 +145,7 @@ namespace CorelDraw.Automation
             return shape;
         }
 
-        public Shape CreatePolyLine(List<Vector2> nodes, bool closed = false, string name = null)
+        public Shape CreatePolyLine(List<VectorC2> nodes, bool closed = false, string name = null)
         {
             if (nodes == null) throw new ArgumentNullException("nodes");
             if (nodes.Count < 2) throw new ArgumentException("minimum of 2 nodes required");
@@ -167,7 +167,7 @@ namespace CorelDraw.Automation
             return shape;
         }
 
-        public Shape CreateLine(Vector2 point1, Vector2 point2, bool betweenborders = true, string name = null)
+        public Shape CreateLine(VectorC2 point1, VectorC2 point2, bool betweenborders = true, string name = null)
         {
             if (betweenborders)
             {
@@ -195,11 +195,11 @@ namespace CorelDraw.Automation
             return shape;
         }
 
-        Vector2[] bordertoborder(Vector2 point1, Vector2 point2)
+        VectorC2[] bordertoborder(VectorC2 point1, VectorC2 point2)
         {
             if (point1.Equals(point2)) { return null; }
 
-            var rv = new Vector2[2];
+            var rv = new VectorC2[2];
 
             Line2D border_T_LR = new Point2D(TopLeft).Join(new Point2D(TopRight));
             Line2D border_L_BT = new Point2D(TopLeft).Join(new Point2D(BottomLeft));
@@ -273,7 +273,7 @@ namespace CorelDraw.Automation
             }
         }
 
-        public Shape CreateCurve(List<Vector2> nodes, bool closed = false, string name = null)
+        public Shape CreateCurve(List<VectorC2> nodes, bool closed = false, string name = null)
         {
             if (nodes == null) throw new ArgumentNullException("nodes");
             if (nodes.Count < 2) throw new ArgumentException("minimum of 2 nodes required");
@@ -298,7 +298,7 @@ namespace CorelDraw.Automation
             return shape;
         }
 
-        public Shape CreateCurve(List<List<Vector2>> nodes)
+        public Shape CreateCurve(List<List<VectorC2>> nodes)
         {
             var shaperange = new ShapeRange();
 

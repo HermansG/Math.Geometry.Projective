@@ -423,9 +423,9 @@ namespace Geometry.Projective
             var pre_images = new List<Point3D>();
             var images = new List<Plane3D>();
 
-            Vector3 center_affine = center.ToAffine();
+            VectorC3 center_affine = center.ToAffine();
 
-            Vector3 specialvector = new Vector3(1, 1, 1);
+            VectorC3 specialvector = new VectorC3(1, 1, 1);
             Point3D specialpoint = new Point3D(center_affine + radius * specialvector.Normalize());
             Plane3D specialplane = new Plane3D(specialvector);
             specialplane = specialplane.Meet(Plane3D.Infinity).Join(specialpoint);
@@ -435,12 +435,12 @@ namespace Geometry.Projective
             pre_images.Add(center);
             images.Add(Plane3D.Infinity);
 
-            Point3D northpole = new Point3D(center_affine + radius * new Vector3(0, 0, 1));
-            Point3D southpole = new Point3D(center_affine - radius * new Vector3(0, 0, 1));
-            Point3D eastpole = new Point3D(center_affine + radius * new Vector3(0, 1, 0));
-            Point3D westpole = new Point3D(center_affine - radius * new Vector3(0, 1, 0));
-            Point3D frontpole = new Point3D(center_affine + radius * new Vector3(1, 0, 0));
-            Point3D backpole = new Point3D(center_affine - radius * new Vector3(1, 0, 0));
+            Point3D northpole = new Point3D(center_affine + radius * new VectorC3(0, 0, 1));
+            Point3D southpole = new Point3D(center_affine - radius * new VectorC3(0, 0, 1));
+            Point3D eastpole = new Point3D(center_affine + radius * new VectorC3(0, 1, 0));
+            Point3D westpole = new Point3D(center_affine - radius * new VectorC3(0, 1, 0));
+            Point3D frontpole = new Point3D(center_affine + radius * new VectorC3(1, 0, 0));
+            Point3D backpole = new Point3D(center_affine - radius * new VectorC3(1, 0, 0));
 
             Plane3D frontplane = eastpole.Join(westpole, northpole);
             Plane3D azimuthplane = backpole.Join(frontpole, northpole);

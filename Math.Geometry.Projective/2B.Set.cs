@@ -211,11 +211,11 @@ namespace Geometry.Projective
     {
         public ProjectionList(ProjectionType projectiontype)
         {
-            Values = new List<Vector2>();
+            Values = new List<VectorC2>();
             ProjectionType = projectiontype;
         }
 
         public ProjectionType ProjectionType;
-        public List<Vector2> Values;
+        public List<VectorC2> Values;
     }
 }

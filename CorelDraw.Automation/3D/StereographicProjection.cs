@@ -67,7 +67,7 @@ namespace CorelDraw.Automation.Drawings
             Point3D.Origin.Name = "Origin";
             points.Add(Center);
             points.Add(NorthPole);
-            List<Vector2> point_nodes = projection.Project(points);
+            List<VectorC2> point_nodes = projection.Project(points);
             foreach (var point in point_nodes)
             {
                 CreatePoint(point + CenterOfPaper, 0.1, Orange, name: point.Name);
@@ -79,7 +79,7 @@ namespace CorelDraw.Automation.Drawings
                 double radians = Trig.DegreeToRadian(alpha);
                 var plane = new Plane3D(0, Math.Cos(radians), Math.Sin(radians), 0);
                 var greatcircle = Functions.NodesCircle(Center, plane, radius);
-                List<Vector2> greatcircle_drawingnodes = null; //  projection.Project(greatcircle, CenterOfPaper, ProjectionType.Frontside);
+                List<VectorC2> greatcircle_drawingnodes = null; //  projection.Project(greatcircle, CenterOfPaper, ProjectionType.Frontside);
                 CreateCurve(greatcircle_drawingnodes, closed: false, name: "GreatCircle" + alpha);
             }
 
@@ -91,7 +91,7 @@ namespace CorelDraw.Automation.Drawings
                 var plane = new Plane3D(-height, 0, 0, 1);
                 Point3D center = new Point3D(1, 0, 0, height);
                 var latitudecircle = Functions.NodesCircle(center, plane, radius * Math.Cos(radians));
-                List<Vector2> latitudecircle_drawingnodes = null; // projection.Project(latitudecircle, CenterOfPaper, ProjectionType.Frontside);
+                List<VectorC2> latitudecircle_drawingnodes = null; // projection.Project(latitudecircle, CenterOfPaper, ProjectionType.Frontside);
                 CreateCurve(latitudecircle_drawingnodes, closed: false, name: "LatitudeCircle" + alpha);
             }
         }

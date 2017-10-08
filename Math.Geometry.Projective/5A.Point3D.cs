@@ -51,7 +51,7 @@ namespace Geometry.Projective
         /// The vector data are copied into the coordinates of the new point.<para>
         /// The first coordinate will be One.</para>
         /// </summary>
-        public Point3D(Vector3 vector3d) : this(vector3d[0], vector3d[1], vector3d[2]) { }
+        public Point3D(VectorC3 vector3d) : this(vector3d[0], vector3d[1], vector3d[2]) { }
         /// <summary>
         /// The values (complex or real) are copied into the coordinates of the new point.<para>
         /// The first coordinate will be One, the fourth coordinate 'z' will be zero.</para>
@@ -134,10 +134,10 @@ namespace Geometry.Projective
         /// The corresponding 3-dimensional affine or euclidean coordinates of the point are returned.<para>
         /// When the point is at infinity, 'null' is returned.</para>
         /// </summary>
-        public Vector3 ToAffine()
+        public VectorC3 ToAffine()
         {
             if (vector[0].IsZero()) return null;
-            else return new Vector3(vector[1] / vector[0], vector[2] / vector[0], vector[3] / vector[0]);
+            else return new VectorC3(vector[1] / vector[0], vector[2] / vector[0], vector[3] / vector[0]);
         }
 
 
@@ -145,26 +145,26 @@ namespace Geometry.Projective
         /// When the point is at infinity, its remaining 3-dimensional affine or euclidean coordinates are returned.<para>
         /// Otherwise 'null' is returned.</para>
         /// </summary>
-        public Vector3 AsDirection()
+        public VectorC3 AsDirection()
         {
             if (vector[0].IsZero())
             {
-                var rv = new Vector3(vector[1], vector[2], vector[3]).Normalize();
-                if ((rv * Vector3.EX).Real.IsZero())
+                var rv = new VectorC3(vector[1], vector[2], vector[3]).Normalize();
+                if ((rv * VectorC3.EX).Real.IsZero())
                 {
-                    if ((rv * Vector3.EY).Real.IsZero())
+                    if ((rv * VectorC3.EY).Real.IsZero())
                     {
-                        if ((rv * Vector3.EZ).Real < 0)
+                        if ((rv * VectorC3.EZ).Real < 0)
                         {
                             return -rv;
                         }
                     }
-                    else if ((rv * Vector3.EY).Real < 0)
+                    else if ((rv * VectorC3.EY).Real < 0)
                     {
                         return -rv;
                     }
                 }
-                else if ((rv * Vector3.EX).Real < 0)
+                else if ((rv * VectorC3.EX).Real < 0)
                 {
                     return -rv;
                 }

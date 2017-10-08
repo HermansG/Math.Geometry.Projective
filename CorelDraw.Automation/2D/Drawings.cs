@@ -20,7 +20,7 @@ namespace CorelDraw.Automation
         {
             ParameterList<Point2D> nodes_homogeneous = Functions.NodesLemniscate(focal_distance: 30, center: CenterOfPaper, rotationangle: 45);
 
-            var nodes = new List<Vector2>();
+            var nodes = new List<VectorC2>();
             foreach (var item in nodes_homogeneous.Values)
             {
                 nodes.Add(item.ToAffine());
@@ -30,7 +30,7 @@ namespace CorelDraw.Automation
 
             nodes_homogeneous = Functions.NodesLemniscate(focal_distance: 30, center: CenterOfPaper, rotationangle: 0);
 
-            nodes = new List<Vector2>();
+            nodes = new List<VectorC2>();
             foreach (var item in nodes_homogeneous.Values)
             {
                 nodes.Add(item.ToAffine());
@@ -40,7 +40,7 @@ namespace CorelDraw.Automation
 
             nodes_homogeneous = Functions.NodesLemniscate(focal_distance: 30, center: CenterOfPaper, rotationangle: 90);
 
-            nodes = new List<Vector2>();
+            nodes = new List<VectorC2>();
             foreach (var item in nodes_homogeneous.Values)
             {
                 nodes.Add(item.ToAffine());
@@ -59,11 +59,11 @@ namespace CorelDraw.Automation
         {
             Func<double, double> Step = t => Math.Abs(t) > 1 ? 0.1 : 0.01;
 
-            var nodes = new List<Vector2>();
+            var nodes = new List<VectorC2>();
 
             for (double t = -10; 1 / t >= -10; t += Step(t))
             {
-                var node = new Vector2(t, 1 / t) + CenterOfPaper;
+                var node = new VectorC2(t, 1 / t) + CenterOfPaper;
                 nodes.Add(node);
             }
 
@@ -72,7 +72,7 @@ namespace CorelDraw.Automation
             nodes.Clear();
             for (double t = 10; 1 / t <= 10; t -= Step(t))
             {
-                var node = new Vector2(t, 1 / t) + CenterOfPaper;
+                var node = new VectorC2(t, 1 / t) + CenterOfPaper;
                 nodes.Add(node);
             }
 
@@ -115,8 +115,8 @@ namespace CorelDraw.Automation
 
                 var nodes_transformed = transformation.Map(nodes_homogeneous.Values).Select(n => n.ToAffine()).ToList();
 
-                var nodes = new List<List<Vector2>>();
-                nodes.Add(new List<Vector2>());
+                var nodes = new List<List<VectorC2>>();
+                nodes.Add(new List<VectorC2>());
                 int range = 0;
                 for (int i = 0; i < nodes_transformed.Count; i++)
                 {
@@ -132,7 +132,7 @@ namespace CorelDraw.Automation
                     }
                     if (throughinfinity)
                     {
-                        nodes.Add(new List<Vector2>());
+                        nodes.Add(new List<VectorC2>());
                         range++;
                         if (nodes_transformed[i].Norm() < HalfPaperWidth)
                         {

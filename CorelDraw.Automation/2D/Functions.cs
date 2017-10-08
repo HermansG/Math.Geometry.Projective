@@ -14,9 +14,9 @@ namespace CorelDraw.Automation
 
     public static class Functions
     {
-        public static ParameterList<Point2D> NodesLemniscate(double focal_distance, Vector2 center = null, double rotationangle = 0)
+        public static ParameterList<Point2D> NodesLemniscate(double focal_distance, VectorC2 center = null, double rotationangle = 0)
         {
-            if (center == null) center = Vector2.Origin;
+            if (center == null) center = VectorC2.Origin;
 
             var origin = new Point2D(1, 0 + center[0], 0 + center[1]);
 
@@ -41,9 +41,9 @@ namespace CorelDraw.Automation
             return list;
         }
 
-        static Func<Complex, Point2D> Lemniscate(double focal_distance, Vector2 center = null, double rotationangle = 0)
+        static Func<Complex, Point2D> Lemniscate(double focal_distance, VectorC2 center = null, double rotationangle = 0)
         {
-            if (center == null) center = Vector2.Origin;
+            if (center == null) center = VectorC2.Origin;
 
             Func<Complex, Complex> X = t => (focal_distance * Math.Sqrt(2) * Trig.Cos(t)) / (1 + Trig.Sin(t).Square());
             Func<Complex, Complex> Y = t => X(t) * Trig.Sin(t);
@@ -103,8 +103,8 @@ namespace CorelDraw.Automation
                 other = plane.GetPoint(exclude: center);
             }
 
-            Vector3 radius_x = radius * (other.ToAffine() - center.ToAffine()).Normalize();
-            Vector3 radius_y = radius * plane.NormalVector.CrossProduct(radius_x).Normalize();
+            VectorC3 radius_x = radius * (other.ToAffine() - center.ToAffine()).Normalize();
+            VectorC3 radius_y = radius * plane.NormalVector.CrossProduct(radius_x).Normalize();
 
             System.Diagnostics.Debug.Assert(Extensions.IsZero(radius_x * radius_y));
             System.Diagnostics.Debug.Assert(Extensions.IsZero(radius_x * plane.NormalVector));

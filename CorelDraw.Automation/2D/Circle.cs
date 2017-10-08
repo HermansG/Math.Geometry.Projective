@@ -42,7 +42,7 @@ namespace CorelDraw.Automation
         }
 
         public Line2D Line { get; private set; }
-        public Vector2 Center { get; private set; }
+        public VectorC2 Center { get; private set; }
         public double Radius { get; private set; }
         public bool IsLine { get { return Line != null; } }
 
@@ -78,7 +78,7 @@ namespace CorelDraw.Automation
         /// Calculate the center of the circle through three given points.<para>
         /// When the points are not different or when any point lies at infinity, `null` is returned.</para>
         /// </summary>
-        public Vector2 CenterCircle(Point2D p1, Point2D p2, Point2D p3)
+        public VectorC2 CenterCircle(Point2D p1, Point2D p2, Point2D p3)
         {
             if (p1.IsAtInfinity() || p2.IsAtInfinity() || p3.IsAtInfinity())
             {

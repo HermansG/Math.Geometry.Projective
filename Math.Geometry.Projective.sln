@@ -1,20 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math.Geometry.Projective", "Math.Geometry.Projective\Math.Geometry.Projective.csproj", "{FC1A6B6D-ED96-4701-A6A1-C7CA1CBA0558}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F8F92445-0A14-48E9-BB3F-74BEAA60B16A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorelDraw.Automation", "CorelDraw.Automation\CorelDraw.Automation.csproj", "{43253726-877E-4C1B-8CB9-93F8A05D7AA9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{D2F9F5DB-B830-4712-8E23-4C9901DB7C22}"
-	ProjectSection(SolutionItems) = preProject
-		packages\MathNet.Numerics.3.17.0\lib\net40\MathNet.Numerics.dll = packages\MathNet.Numerics.3.17.0\lib\net40\MathNet.Numerics.dll
-		packages\MathNet.Numerics.3.17.0\lib\net40\MathNet.Numerics.xml = packages\MathNet.Numerics.3.17.0\lib\net40\MathNet.Numerics.xml
-		README.md = README.md
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32B92C2C-0F23-42AE-B17F-A8C4E81EAAD2}
 	EndGlobalSection
 EndGlobal

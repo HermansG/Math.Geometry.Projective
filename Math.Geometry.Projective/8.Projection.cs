@@ -60,17 +60,17 @@ namespace Geometry.Projective
             if (ProjectionPlane.IsIncident(Line3D.Yaxis))
             {
                 XAxis = Line3D.Yaxis;
-                XUnitVector = Vector3.EY;
+                XUnitVector = VectorC3.EY;
             }
             else if (ProjectionPlane.IsIncident(Line3D.Zaxis))
             {
                 XAxis = Line3D.Zaxis;
-                XUnitVector = Vector3.EZ;
+                XUnitVector = VectorC3.EZ;
             }
             else if (ProjectionPlane.IsIncident(Line3D.Xaxis))
             {
                 XAxis = Line3D.Xaxis;
-                XUnitVector = Vector3.EX;
+                XUnitVector = VectorC3.EX;
             }
             else
             {
@@ -78,7 +78,7 @@ namespace Geometry.Projective
                 if (point.IsAtInfinity)
                 {
                     XAxis = Origin.Join(point);
-                    XUnitVector = Vector3.EY;
+                    XUnitVector = VectorC3.EY;
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace Geometry.Projective
                     if (point.IsAtInfinity)
                     {
                         XAxis = Origin.Join(point);
-                        XUnitVector = Vector3.EZ;
+                        XUnitVector = VectorC3.EZ;
                     }
                     else
                     {
@@ -94,7 +94,7 @@ namespace Geometry.Projective
                         if (point.IsAtInfinity)
                         {
                             XAxis = Origin.Join(point);
-                            XUnitVector = Vector3.EX;
+                            XUnitVector = VectorC3.EX;
                         }
                         else
                         {
@@ -126,7 +126,7 @@ namespace Geometry.Projective
         /// The center of the spatial projection.
         /// </summary>
         public Point3D ProjectionCenter = Point3D.InfinityX;
-        Vector3 ProjectionCenterAffine = Point3D.InfinityX.ToAffine();
+        VectorC3 ProjectionCenterAffine = Point3D.InfinityX.ToAffine();
         /// <summary>
         /// The plane onto which the projection takes place.
         /// </summary>
@@ -135,7 +135,7 @@ namespace Geometry.Projective
         /// The origin of the two-dimensional coordinate system in the plane of projection.
         /// </summary>
         public Point3D Origin = Point3D.Origin;
-        Vector3 OriginAffine = Point3D.Origin.ToAffine();
+        VectorC3 OriginAffine = Point3D.Origin.ToAffine();
         /// <summary>
         /// The x-axis of the two-dimensional coordinate system in the plane of projection.
         /// </summary>
@@ -143,7 +143,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The 3-D unit vector along the x-axis of the two-dimensional coordinate system in the plane of projection.
         /// </summary>
-        public Vector3 XUnitVector = Vector3.EY;
+        public VectorC3 XUnitVector = VectorC3.EY;
         /// <summary>
         /// The y-axis of the two-dimensional coordinate system in the plane of projection.
         /// </summary>
@@ -151,27 +151,27 @@ namespace Geometry.Projective
         /// <summary>
         /// The 3-D unit vector along the y-axis of the two-dimensional coordinate system in the plane of projection.
         /// </summary>
-        public Vector3 YUnitVector = Vector3.EZ;
+        public VectorC3 YUnitVector = VectorC3.EZ;
 
         /// <summary>
         /// Project a range of points.
         /// </summary>
-        public List<Vector2> Project(List<Point3D> points, Vector2 offset = null)
+        public List<VectorC2> Project(List<Point3D> points, VectorC2 offset = null)
         {
-            var rv = new List<Vector2>();
+            var rv = new List<VectorC2>();
 
-            if (offset == null) offset = new Vector2(0, 0);
+            if (offset == null) offset = new VectorC2(0, 0);
 
             List<ProjectionSet> projectedsets = RealProjectedPoints(points);
 
             foreach (var projectedset in projectedsets.Select(p => p.ProjectedPoint))
             {
-                Vector3 affineprojectedvector = projectedset.ToAffine() - OriginAffine;
+                VectorC3 affineprojectedvector = projectedset.ToAffine() - OriginAffine;
 
                 Complex x = affineprojectedvector * XUnitVector;
                 Complex y = affineprojectedvector * YUnitVector;
 
-                Vector2 drawingpoint = offset + new Vector2(x.Real, y.Real);
+                VectorC2 drawingpoint = offset + new VectorC2(x.Real, y.Real);
 
                 drawingpoint.Name = projectedset.Name;
 
@@ -185,13 +185,13 @@ namespace Geometry.Projective
         /// Project a range of points using the type of projection (frontside, backside, behindside).<para>
         /// The lists that are returned are grouped in continuous ranges of points each of a certain type of projection.</para>
         /// </summary>
-        public List<ProjectionList> Project(ParameterList<Point3D> pointsparameters, Vector2 offset = null)
+        public List<ProjectionList> Project(ParameterList<Point3D> pointsparameters, VectorC2 offset = null)
         {
             var rv = new List<ProjectionList>();
 
             if (pointsparameters.Count == 0) return rv;
 
-            if (offset == null) offset = new Vector2(0, 0);
+            if (offset == null) offset = new VectorC2(0, 0);
 
             List<Point3D> points = pointsparameters.Values.ToList();
 
@@ -256,16 +256,16 @@ namespace Geometry.Projective
             return rv;
         }
 
-        void addvector2(ProjectionSet projectionset, Vector2 offset, ProjectionList list)
+        void addvector2(ProjectionSet projectionset, VectorC2 offset, ProjectionList list)
         {
             Point3D projectedpoint = projectionset.ProjectedPoint;
 
-            Vector3 affineprojectedvector = projectedpoint.ToAffine() - OriginAffine;
+            VectorC3 affineprojectedvector = projectedpoint.ToAffine() - OriginAffine;
 
             Complex x = affineprojectedvector * XUnitVector;
             Complex y = affineprojectedvector * YUnitVector;
 
-            Vector2 drawingpoint = offset + new Vector2(x.Real, y.Real);
+            VectorC2 drawingpoint = offset + new VectorC2(x.Real, y.Real);
 
             drawingpoint.Name = projectedpoint.Name;
 
@@ -432,10 +432,10 @@ namespace Geometry.Projective
             if (ProjectionCenter.IsAtInfinity)
             {
                 // vector1 = vector from projected point to spatial point
-                Vector3 vector1 = spatialpoint.ToAffine() - projectedpoint.ToAffine();
+                VectorC3 vector1 = spatialpoint.ToAffine() - projectedpoint.ToAffine();
 
                 // vector2 = directional vector of the projection-center 
-                Vector3 vector2 = ProjectionCenterAffine;
+                VectorC3 vector2 = ProjectionCenterAffine;
 
                 if (vector1.IsZero())
                 {
@@ -452,10 +452,10 @@ namespace Geometry.Projective
             else
             {
                 // vector1 = vector from projection-center to spatial point
-                Vector3 vector1 = spatialpoint.ToAffine() - ProjectionCenterAffine;
+                VectorC3 vector1 = spatialpoint.ToAffine() - ProjectionCenterAffine;
 
                 // vector2 = vector from projection-center to projected point
-                Vector3 vector2 = projectedpoint.ToAffine() - ProjectionCenterAffine;
+                VectorC3 vector2 = projectedpoint.ToAffine() - ProjectionCenterAffine;
 
                 // vector1 = factor * vector2
                 factor = Extensions.LinearDependentFactor(vector2, vector1);
@@ -564,7 +564,7 @@ namespace Geometry.Projective
         /// <summary>
         /// The two-dimensional coordinates of the projected point in the projection plane.
         /// </summary>
-        public Vector2 ProjectedPoint2D { get; set; }
+        public VectorC2 ProjectedPoint2D { get; set; }
         /// <summary>
         /// The type of projection (frontside, backside, behindside).
         /// </summary>

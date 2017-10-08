@@ -229,8 +229,8 @@ namespace Geometry.Projective
                     }
                     else
                     {
-                        Vector3 direction = new Vector3(vector[0], vector[1], vector[2]);
-                        Vector3 moment = new Vector3(vectordual[0], vectordual[1], vectordual[2]);
+                        VectorC3 direction = new VectorC3(vector[0], vector[1], vector[2]);
+                        VectorC3 moment = new VectorC3(vectordual[0], vectordual[1], vectordual[2]);
                         axis = new Line3D(direction, moment - Pitch * direction);
                     }
                 }
@@ -250,7 +250,7 @@ namespace Geometry.Projective
                 if (infinitePoint == null)
                 {
                     Plane3D normal = Axis.Join(Point3D.Origin);
-                    orthogonalAxis = new Line3D(normal.NormalVector, Vector3.Zero);
+                    orthogonalAxis = new Line3D(normal.NormalVector, VectorC3.Zero);
                 }
                 else
                 {
