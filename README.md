@@ -2,7 +2,7 @@
 The art of synthetic projective geometry.
 
 This projective geometry implementation focuses on the usage of synthetic methods when possible and adequate.   
-So not on performance or coding per se.
+I.e it does not focus on performance or coding per se.
 
 Example. The stereographic projection of a 3D-sphere onto a 2D-plane is *not* implemented by a formula.   
 First the spatial 3D-points on the sphere are calculated using 4 homogeneous coordinates per point.
